@@ -4,13 +4,15 @@ import { Playlist } from "./Pages/Playlist/Playlist";
 import { WatchLater } from "./Pages/Watch/Watch";
 import { Liked } from "./Pages/Liked/Liked";
 import { History } from "./Pages/History/History";
-import {Explore} from "./Pages/Explore/Explore" 
+import {Explore} from "./Pages/Explore/Explore";
+import  {Navbar} from "../src/Components/Navbar"
 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+    <Navbar/>
     <Routes>
         <Route path="/" element={<Explore />} />
         <Route path="/history" element={<History />} />
@@ -19,8 +21,7 @@ function App() {
         <Route path="/playlist" element={<Playlist />} />
        <Route path="/mock" element ={<Mockman/>}/>
       </Routes>
-      <h1> infinity-play </h1>
-      <p>Contains videos to be played.</p>
+     
     </div>
   );
 }
