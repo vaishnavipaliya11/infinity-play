@@ -1,20 +1,43 @@
 import React from "react";
 import "../Explore/Explore.css";
+// import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import {FaHistory} from 'react-icons/fa';
+import { MdPlaylistAdd,MdWatchLater,MdExplore } from "react-icons/md";
+import { AiOutlineLike } from "react-icons/ai";
 
 const Explore = () => {
   return (
     <div className="main-container">
       <div className="sidebar-container">
         <ul className="options-list fs-lrg pd-lrg">
+          
+
+          <div className="options">
+         
           <li className="pd-med">Explore</li>
-          <div>
+          <h3><MdExplore/> </h3> 
+          </div>
+
+          <div className="options">
           <li className="pd-med">Playlist </li>
+          <h3><MdPlaylistAdd/> </h3> 
           </div>
           
+          <div className="options">
           <li className="pd-med">Liked</li>
+          <h3> <AiOutlineLike/> </h3>
+          </div>
+          
+        <div className="options">
+        <li className="pd-med">Watchlater</li>
+        <h3> <MdWatchLater/> </h3>
+        </div>
+
+          <div className="options">
+          <li className="pd-med">History</li>
+          <h3><FaHistory/></h3>
+          </div>
         
-          <li className="pd-med">Watchlater</li>
-          <li className="pd-med">History</li><i class="fa-solid fa-clock-rotate-left"></i>
         </ul>
       </div>
       <div className="video-cards-container">
@@ -23,7 +46,7 @@ const Explore = () => {
             <div className="product-card">
               <div className="badge">
               <button className="clear-btn">
-                <i className="bi bi-save-fill"></i>
+              <h3> <MdWatchLater/> </h3>
                 </button>
               </div>
               <div className="product-tumb">
@@ -36,9 +59,13 @@ const Explore = () => {
                 
                 <div>
                 
-                <button className="clear-btn">
-                <i class="bi bi-card-list"></i>
+                 <button className="clear-btn">
+                 <h2><MdPlaylistAdd/></h2>
                 </button>
+
+                <button className="clear-btn">
+                <h2><AiOutlineLike/></h2>
+               </button>
                 </div>
                 
               </div>
@@ -49,7 +76,7 @@ const Explore = () => {
           <div className="product-card">
             <div className="badge">
             <button className="clear-btn">
-              <i className="bi bi-save-fill"></i>
+            <h3> <MdWatchLater/> </h3>
               </button>
             </div>
             <div className="product-tumb">
@@ -63,8 +90,11 @@ const Explore = () => {
               <div>
               
               <button className="clear-btn">
-              <i className="bi bi-card-list"></i>
+              <h2><MdPlaylistAdd/></h2>
               </button>
+              <button className="clear-btn">
+                <h2><AiOutlineLike/></h2>
+               </button>
               </div>
               
             </div>
@@ -74,8 +104,8 @@ const Explore = () => {
         <div className="product-card">
           <div className="badge">
           <button className="clear-btn">
-            <i className="bi bi-save-fill"></i>
-            </button>
+              <h3> <MdWatchLater/> </h3>
+                </button>
           </div>
           <div className="product-tumb">
             <img src="https://i.etsystatic.com/24687126/r/il/b6261e/2891796307/il_340x270.2891796307_rw2m.jpg" />
@@ -88,8 +118,11 @@ const Explore = () => {
             <div>
             
             <button className="clear-btn">
-            <i className="bi bi-card-list"></i>
+            <h2><MdPlaylistAdd/></h2>
             </button>
+            <button className="clear-btn">
+                <h2><AiOutlineLike/></h2>
+               </button>
             </div>
             
           </div>
@@ -99,8 +132,8 @@ const Explore = () => {
       <div className="product-card">
         <div className="badge">
         <button className="clear-btn">
-          <i className="bi bi-save-fill"></i>
-          </button>
+              <h3> <MdWatchLater/> </h3>
+                </button>
         </div>
         <div className="product-tumb">
           <img src="https://i.etsystatic.com/24687126/r/il/b6261e/2891796307/il_340x270.2891796307_rw2m.jpg" />
@@ -113,8 +146,11 @@ const Explore = () => {
           <div>
           
           <button className="clear-btn">
-          <i className="bi bi-card-list"></i>
+          <h2><MdPlaylistAdd/></h2>
           </button>
+          <button className="clear-btn">
+                <h2><AiOutlineLike/></h2>
+               </button>
           </div>
           
         </div>
@@ -124,8 +160,8 @@ const Explore = () => {
     <div className="product-card">
       <div className="badge">
       <button className="clear-btn">
-        <i className="bi bi-save-fill"></i>
-        </button>
+              <h3> <MdWatchLater/> </h3>
+                </button>
       </div>
       <div className="product-tumb">
         <img src="https://i.etsystatic.com/24687126/r/il/b6261e/2891796307/il_340x270.2891796307_rw2m.jpg" />
@@ -138,8 +174,11 @@ const Explore = () => {
         <div>
         
         <button className="clear-btn">
-        <i className="bi bi-card-list"></i>
+        <h2><MdPlaylistAdd/></h2>
         </button>
+        <button className="clear-btn">
+                <h2><AiOutlineLike/></h2>
+               </button>
         </div>
         
       </div>

@@ -1,5 +1,6 @@
 @import url("../../styles.css");
 
+
 body{
     margin: 0;
     padding: 0;
@@ -66,7 +67,22 @@ body{
 
 .clear-btn i{
     font-size: 1rem;
+
 }
+
+.options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.badge{
+    border-radius: 25%;
+    background:none;
+    top:-10px;
+}
+
 @media screen and (max-width: 600px) {
     .main-container{
         flex-direction: column-reverse;
