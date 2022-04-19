@@ -2,7 +2,7 @@ import React from "react";
 import "../Explore/Explore.css";
 import { FaHistory } from "react-icons/fa";
 import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
-import { AiOutlineLike,AiFillHeart } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Explore = () => {
@@ -31,7 +31,7 @@ const Explore = () => {
               <li className="pd-med">Liked</li>
               <h3>
                 {" "}
-                <AiFillHeart />{" "}
+                <AiOutlineLike />{" "}
               </h3>
             </div>
           </Link>

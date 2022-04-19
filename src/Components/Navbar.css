@@ -13,6 +13,8 @@
 
 .nav-heading h2{
     letter-spacing: 0.2em;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .nav-options{

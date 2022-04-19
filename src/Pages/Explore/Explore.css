@@ -24,6 +24,7 @@ padding: 0;
   overflow: hidden;
   flex-direction: column;
   letter-spacing: 0.2em;
+ color: black;
 }
 
 .sidebar-container Link {
@@ -31,8 +32,8 @@ padding: 0;
 }
 .video-cards-container {
   width: calc(100vw - 5rem);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: calc(100vh - 5rem);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 0%;
   padding: 0%;
   overflow-y: scroll;
@@ -48,8 +49,9 @@ padding: 0;
   list-style: none;
 }
 
-.options-list:hover {
+.options:hover {
   cursor: pointer;
+  color: var(--primary-color);
 }
 
 .product-details {
@@ -73,7 +75,10 @@ padding: 0;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+color: var(--text-clr);
 }
+
+
 
 .badge {
   border-radius: 25%;

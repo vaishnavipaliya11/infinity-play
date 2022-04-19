@@ -3,3 +3,7 @@
 /* @import url('https:/
 /fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=IBM+Plex+Sans:wght@100&display=swap');
+
+:root{
+    --text-clr:#525252;
+}
