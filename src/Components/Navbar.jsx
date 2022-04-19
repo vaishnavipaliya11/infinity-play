@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <Link to="/liked">
+        <Link to="">
           <div className="options">
             <li>
               <h3>
