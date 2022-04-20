@@ -1,0 +1,33 @@
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.nav-heading{
+    height: 5rem;
+}
+
+.nav-heading h2{
+    letter-spacing: 0.2em;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-options{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.options li{
+    list-style: none;
+   
+}
+
+.icon-size{
+font-size: 1.5rem;
+padding: 0.5rem;
+}

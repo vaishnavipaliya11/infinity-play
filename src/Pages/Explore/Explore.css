@@ -1,0 +1,26 @@
+@import url("../../styles.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+
+@media screen and (max-width: 600px) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+  .nav-heading {
+    height: 3rem;
+  }
+  .video-cards-container {
+    width: 100vw;
+  }
+  .list {
+    flex-direction: row;
+  }
+}
