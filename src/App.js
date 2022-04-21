@@ -4,6 +4,7 @@ import { Playlist } from "./Pages/Playlist/Playlist";
 import { WatchLater } from "./Pages/Watch/Watch";
 import { Liked } from "./Pages/Liked/Liked";
 import { History } from "./Pages/History/History";
+import { Login } from "./Pages/Login/Login";
 import {Explore} from "./Pages/Explore/Explore";
 import  {Navbar} from "../src/Components/Navbar"
 import { Sidebar } from "./Components/Sidebar";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/watch" element={<WatchLater />} />
         <Route path="/playlist" element={<Playlist />} />
        <Route path="/mock" element ={<Mockman/>}/>
+       <Route path="/login" element={<Login />} />
     </Routes>
      
     </div>

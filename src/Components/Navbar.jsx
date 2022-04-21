@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { MdPlaylistAdd, MdExplore } from "react-icons/md";
 import { AiOutlineLike, AiFillHeart } from "react-icons/ai";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt ,FaUserAlt} from "react-icons/fa";
 
 import { FaInfinity } from "react-icons/fa";
 
@@ -62,6 +62,17 @@ const Navbar = () => {
             </li>
           </div>
         </Link>
+
+        <Link to="/login">
+        <div className="options">
+          <li>
+            {" "}
+            <h3>
+              <FaUserAlt className="icon-size" />
+            </h3>
+          </li>
+        </div>
+      </Link>
       </div>
     </div>
   );
