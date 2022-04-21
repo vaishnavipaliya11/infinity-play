@@ -10,6 +10,7 @@ import  {Navbar} from "../src/Components/Navbar"
 import { Sidebar } from "./Components/Sidebar";
 
 import { Routes, Route } from "react-router-dom";
+import Signup from "./Pages/Sign/Signup";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/playlist" element={<Playlist />} />
        <Route path="/mock" element ={<Mockman/>}/>
        <Route path="/login" element={<Login />} />
+       <Route path="/sign" element={<Signup />} />
     </Routes>
      
     </div>

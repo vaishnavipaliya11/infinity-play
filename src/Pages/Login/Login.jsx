@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
 const Login = () => {
   return (
-    <div>
+  
       <div className="form-container">
         <div className="validation">
           <form action="">
@@ -23,13 +24,16 @@ const Login = () => {
             <div>
             <p> Don't have an account ?
             </p>
-
+            
+            <Link to="/sign">
             <button>Create an account</button>
+            </Link>
+            
             </div>
           </form>
         </div>
       </div>
-    </div>
+    
   );
 };
 
