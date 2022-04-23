@@ -1,0 +1,13 @@
+.video-display-container{
+    width:60rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;justify-content: center;
+}
+
+.single-video-container{
+    display: flex;
+    flex-direction: column; 
+    
+}
