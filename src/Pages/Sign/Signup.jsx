@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from 'axios';
 
 const Signup = () => {
+  
   const  navigate = useNavigate()
   const { auth, setAuth } = useAuth();
   const [erorMsg, setErrorMsg]= useState(false)
