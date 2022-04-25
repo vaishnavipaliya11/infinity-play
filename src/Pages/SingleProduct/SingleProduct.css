@@ -1,0 +1,44 @@
+.video-frame{
+    width:60rem;
+    height: 5rem;
+  
+}
+
+.single-video-container{
+    display: flex;
+    flex-direction: column; 
+    width: 60rem;
+    align-content: center;
+}
+
+
+.video-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-description{
+    font-size: 1rem;
+    font-weight: 500;
+    width: 60rem;
+    letter-spacing: 0.1em;
+}
+
+.video-btn-title-set{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.video-btns{
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.video-btns button{
+    margin:0.5rem ;
+cursor: pointer;
+}

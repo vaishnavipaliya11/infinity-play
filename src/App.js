@@ -11,6 +11,7 @@ import { Sidebar } from "./Components/Sidebar";
 
 import { Routes, Route } from "react-router-dom";
 import Signup from "./Pages/Sign/Signup";
+import { SingleProduct } from "./Pages/SingleProduct/SingleProduct";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/liked" element={<Liked />} />
         <Route path="/watch" element={<WatchLater />} />
         <Route path="/playlist" element={<Playlist />} />
+        <Route path="/singlevideo/:video_id" element={<SingleProduct />} />
        <Route path="/mock" element ={<Mockman/>}/>
        <Route path="/login" element={<Login />} />
        <Route path="/sign" element={<Signup />} />

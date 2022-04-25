@@ -33,7 +33,10 @@ const Explore = () => {
             </div>
             <div className="product-details">
               <span className="product-catagory">
-                <p className="prod-title">{title}</p>
+              <Link to={`/singlevideo/${_id}`}>
+              <p className="prod-title">{title}</p>
+              </Link>
+                
               </span>
 
               <div>
