@@ -20,7 +20,6 @@ const Explore = () => {
     <div className="main-container">
       <div className="video-cards-container">
       {data.map((video)=>{
-        console.log("from explore", video);
         return (
           <VideoCard video={video}/>
         )

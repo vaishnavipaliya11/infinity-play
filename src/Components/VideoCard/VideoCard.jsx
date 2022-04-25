@@ -7,7 +7,6 @@ import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
 
 const VideoCard = ({video}) => {
-    console.log("video from card",video);
   
     const {watchLaterState,watchLaterDispatch} = useWatchLater()
     const navigate = useNavigate()
