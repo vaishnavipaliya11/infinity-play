@@ -1,12 +1,21 @@
-.watchLater-container{
-    display: flex;
-    flex-direction: row;
+.watchLater-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.video-map-container{
-    position: relative;
+.video-delete-btn {
+  position: absolute;
+  margin: -30px;
+  padding: 0.5em;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  border-radius: 10%;
+  border: 2px solid var(--primary-color);
 }
 
-.video-delete-btn{
-    position: absolute;
+.video-delete-btn:hover {
+  color: #ffff;
+  background-color: var(--primary-color);
+  cursor: pointer;
 }

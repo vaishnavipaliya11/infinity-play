@@ -17,7 +17,7 @@ const WatchLater = () => {
     <h2>This is Watch later page.</h2>
 
     {watchLater.map((video)=>{
-      const {_id,title} = video
+      const {_id} = video
       return(
         <div className='video-map-container'>
         <VideoCard video={video}/>
@@ -25,9 +25,7 @@ const WatchLater = () => {
         onClick={() =>
            deleteWatchLater(_id, watchLaterDispatch)
           
-        }>
-        
-        delete</button>
+        }> Remove </button>
         </div>
         
       )
