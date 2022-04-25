@@ -1,0 +1,12 @@
+.watchLater-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.video-map-container{
+    position: relative;
+}
+
+.video-delete-btn{
+    position: absolute;
+}
