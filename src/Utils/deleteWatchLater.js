@@ -2,7 +2,6 @@ import axios from "axios";
 import { getUserToken } from "./getUserToken";
 
 const deleteWatchLater = async (_id, watchLaterDispatch) => {
-  // console.log("from delete func",video);
   try {
     const { data } = await axios({
       method: "DELETE",
