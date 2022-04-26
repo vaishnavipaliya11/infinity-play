@@ -3,7 +3,7 @@ import {
   useContext,
   useReducer,
 } from "react";
-
+import { likeReducerFunc } from "../Reducer/LikeReducer";
 
 const LikeContext = createContext();
 
