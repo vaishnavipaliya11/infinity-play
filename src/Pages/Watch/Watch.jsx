@@ -1,11 +1,35 @@
-import React from 'react'
+import React from "react";
+import { useWatchLater } from "../../context/watchContext";
+import { VideoCard } from "../../Components/VideoCard/VideoCard";
+import "./Watch.css";
+import { deleteWatchLater } from "../../Utils/deleteWatchLater";
 
 const WatchLater = () => {
-  return (
-    <div>
-    <h2>This is Watch later page.</h2>
-    </div>
-  )
-}
+  const { watchLaterState } = useWatchLater();
+  const { watchLater } = watchLaterState;
+  const { watchLaterDispatch } = useWatchLater();
 
-export  {WatchLater}
+  return (
+    <div className="watchLater-container">
+      <h2>This is Watch later page.</h2>
+
+      {watchLater.map((video) => {
+        const { _id } = video;
+        return (
+          <div className="video-map-container">
+            <VideoCard video={video} />
+            <button
+              className="video-delete-btn"
+              onClick={() => deleteWatchLater(_id, watchLaterDispatch)}
+            >
+              {" "}
+              Remove{" "}
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export { WatchLater };

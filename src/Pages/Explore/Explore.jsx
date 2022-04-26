@@ -3,65 +3,33 @@ import "../Explore/Explore.css";
 import { FaHistory } from "react-icons/fa";
 import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { videoData } from "../../API/videoData";
+import { useWatchLater } from "../../context/watchContext";
+import { useAuth } from "../../context/authContext";
+import { addToWatchLater } from "../../Utils/addToWatchLater";
+import {VideoCard} from "../../Components/VideoCard/VideoCard";
 
 const Explore = () => {
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
+  const navigate = useNavigate();
+  const { data } = videoData();
+  const { auth } = useAuth();
 
-  const {data} = videoData()
-  console.log(data);
   return (
     <div className="main-container">
-      
       <div className="video-cards-container">
-
-      {data.map(({_id, title})=>{
-        return(
-          
-          <div className="products-card-container">
-          <div className="product-card">
-            <div className="badge">
-              <button className="clear-btn">
-                <h3>
-                  {" "}
-                  <MdWatchLater />{" "}
-                </h3>
-              </button>
-            </div>
-            <div className="product-tumb">
-              <img  src={`https://i.ytimg.com/vi/${_id}/0.jpg`} />
-            </div>
-            <div className="product-details">
-              <span className="product-catagory">
-              <Link to={`/singlevideo/${_id}`}>
-              <p className="prod-title">{title}</p>
-              </Link>
-                
-              </span>
-
-              <div>
-                <button className="clear-btn">
-                  <h2>
-                    <MdPlaylistAdd />
-                  </h2>
-                </button>
-
-                <button className="clear-btn">
-                  <h2>
-                    <AiOutlineLike />
-                  </h2>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-          
+      {data.map((video)=>{
+        return (
+          <VideoCard video={video}/>
         )
       })}
-
+        
       </div>
     </div>
   );
 };
 
 export { Explore };
+
+// <VideoCard video={video}/>

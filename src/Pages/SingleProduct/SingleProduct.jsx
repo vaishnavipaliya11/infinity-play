@@ -28,6 +28,7 @@ const SingleProduct = () => {
             src={`https://www.youtube.com/embed/${video_id}`}
             title="YouTube video player"
             frameBorder="0"
+            onPlay={true}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen=""
           ></iframe>
