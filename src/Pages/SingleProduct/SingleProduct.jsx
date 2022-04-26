@@ -1,13 +1,20 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
 import "./SingleProduct.css";
 import { getVideo } from "../../Utils/getVideo";
 import { useState } from "react";
+import { AiFillLike } from "react-icons/ai";
+import { useAuth } from "../../context/authContext";
+import { addToLike } from "../../Utils/addToLike";
+import { useLiked } from "../../context/likeContext";
 
 const SingleProduct = () => {
+  const { auth } = useAuth();
   const { video_id } = useParams();
+  const navigate = useNavigate()
+  const { likedState ,likedDispatch } = useLiked();
 
   const [singleVideoData, setSingleVideoData] = useState({});
 
@@ -38,10 +45,18 @@ const SingleProduct = () => {
       <div className="video-btn-title-set">
         <p className="video-title">{singleVideoData.title}</p>
         <div className="video-btns">
-          <button className="btns">
+          <button
+            className="option-btns"
+            onClick={() =>
+              auth ? addToLike(video, likedDispatch) : navigate("./login")
+            }
+          >
+            <AiFillLike />
+          </button>
+          <button className="option-btns">
             <MdPlaylistAdd />
           </button>
-          <button>
+          <button className="option-btns">
             <MdWatchLater />
           </button>
         </div>
