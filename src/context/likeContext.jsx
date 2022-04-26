@@ -4,10 +4,11 @@ import {
   useReducer,
 } from "react";
 
+
 const LikeContext = createContext();
 
 const LikeProvider = ({ children }) => {
-  const [likeState, likeDispatch] = useReducer(likeReducerFunc, {
+  const [likedState, likedDispatch] = useReducer(likeReducerFunc, {
     likedVideo: [],
   });
   return <LikeContext.Provider>{children}</LikeContext.Provider>;
