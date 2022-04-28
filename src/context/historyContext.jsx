@@ -7,9 +7,9 @@ const HistoryProvider = ({ children }) => {
     historyVideo: [],
   });
   return (
-    <HistoryProvider value={{ historyState, historyDispatch }}>
+    <HistoryContext.Provider value={{ historyState, historyDispatch }}>
       {children}
-    </HistoryProvider>
+    </HistoryContext.Provider>
   );
 };
 

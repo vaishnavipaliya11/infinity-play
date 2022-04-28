@@ -1,4 +1,4 @@
-const historyReduFunc = () => {
+const historyReduFunc = (state,action) => {
   switch (action.type) {
     case "ADD_TO_HISTORY":
       return { ...state, historyVideo: action.payload };
@@ -10,3 +10,5 @@ const historyReduFunc = () => {
       return state;
   }
 };
+
+export{historyReduFunc}
