@@ -7,7 +7,6 @@ const History = () => {
   const { historyState, historyDispatch } = useHistory();
   const { historyVideo } = historyState;
 
-  console.log(historyVideo);
   return (
     <div>
       <h2>This is history page. </h2>
