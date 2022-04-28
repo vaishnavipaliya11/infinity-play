@@ -17,7 +17,6 @@ const Liked = () => {
         <div className="liked-container">
           {likedVideo.map((video) => {
             const { _id } = video;
-            console.log("liked page", video);
             return (
               <div className="video-map-container">
                 <VideoCard key={video._id} video={video} />
