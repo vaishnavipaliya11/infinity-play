@@ -11,10 +11,11 @@ import { addToLike } from "../../Utils/addToLike";
 import { useLiked } from "../../context/likeContext";
 
 const SingleProduct = () => {
+
   const { auth } = useAuth();
   const { video_id } = useParams();
   const navigate = useNavigate()
-  const { likedState ,likedDispatch } = useLiked();
+  const { likedDispatch } = useLiked();
 
   const [singleVideoData, setSingleVideoData] = useState({});
 
@@ -25,6 +26,7 @@ const SingleProduct = () => {
     })();
   }, [video_id]);
 
+  console.log(singleVideoData);
   return (
     <div>
       <div className="video-container">
@@ -35,7 +37,6 @@ const SingleProduct = () => {
             src={`https://www.youtube.com/embed/${video_id}`}
             title="YouTube video player"
             frameBorder="0"
-            onPlay={true}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen=""
           ></iframe>
@@ -48,7 +49,7 @@ const SingleProduct = () => {
           <button
             className="option-btns"
             onClick={() =>
-              auth ? addToLike(video, likedDispatch) : navigate("./login")
+              auth ? addToLike(singleVideoData, likedDispatch) : navigate("./login")
             }
           >
             <AiFillLike />

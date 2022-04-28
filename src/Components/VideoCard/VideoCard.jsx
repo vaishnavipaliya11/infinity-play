@@ -12,6 +12,7 @@ const VideoCard = ({ video }) => {
 
   const { auth } = useAuth();
 
+  console.log("from card", video);
   return (
     <div>
       <div className="products-card-container">

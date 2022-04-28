@@ -3,19 +3,18 @@ import axios from "axios"
 
 const addToLike = async(video,likedDispatch) =>{
     try{
-        const {data}= await axios ({
-            method:"POST",
-            url:"/api/user/likes",
-            headers:{
-                authorization:getUserToken
+        const {data} = await axios.post(
+            "/api/user/likes",
+            {
+              video
             },
-
-            data:{
-                video:video
+            {
+              headers: {
+                authorization: getUserToken(),
+              },
             }
-        })
-
-        likedDispatch({type:"ADD_TO_LIKED",payload:data.likes})
+          );
+          likedDispatch({type:"ADD_TO_LIKED",payload:data.likes})
     }
     catch (e) {
         console.log("Something went wrong",e);
@@ -23,3 +22,4 @@ const addToLike = async(video,likedDispatch) =>{
 }
 
 export{addToLike}
+
