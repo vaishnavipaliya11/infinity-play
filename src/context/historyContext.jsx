@@ -1,3 +1,5 @@
+import { createContext,useContext,useReducer } from "react";
+import {historyReduFunc} from "../Reducer/HistoryReducer"
 const HistoryContext = createContext();
 
 const HistoryProvider = ({ children }) => {
