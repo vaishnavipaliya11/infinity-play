@@ -21,3 +21,5 @@ const addToHistory = async (video, historyDispatch) =>{
         console.log(error);
     }
 }
+
+export{addToHistory}

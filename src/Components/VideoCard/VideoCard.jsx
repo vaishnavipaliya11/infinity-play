@@ -4,12 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
+import{useHistory} from "../../context/historyContext";
+import { addToHistory } from "../../Utils/addToHistory";
 
 const VideoCard = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
   const navigate = useNavigate();
   const { auth } = useAuth();
 
+  const {historyDispatch}= useHistory()
   return (
     <div>
       <div className="products-card-container">
@@ -20,7 +23,12 @@ const VideoCard = ({ video }) => {
           <div className="product-details">
             <span className="product-catagory">
               <Link to={`/singlevideo/${video._id}`}>
-                <p className="prod-title">{video.title}</p>
+                <p className="prod-title"
+                onClick={() =>
+                  auth
+                    ? addToHistory(video, historyDispatch)
+                    : navigate("/login")
+                }>{video.title}</p>
               </Link>
             </span>
 
