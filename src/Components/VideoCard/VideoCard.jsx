@@ -1,7 +1,6 @@
 import React from "react";
-import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
+import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { videoData } from "../../API/videoData";
 import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
@@ -9,7 +8,6 @@ import { addToWatchLater } from "../../Utils/addToWatchLater";
 const VideoCard = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
   const navigate = useNavigate();
-
   const { auth } = useAuth();
 
   return (
