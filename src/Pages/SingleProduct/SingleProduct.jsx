@@ -26,7 +26,7 @@ const SingleProduct = () => {
     })();
   }, [video_id]);
 
-  console.log(singleVideoData);
+
   return (
     <div>
       <div className="video-container">
