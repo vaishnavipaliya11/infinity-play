@@ -11,8 +11,6 @@ const deleteLikedVideo = async (_id, likedDispatch) => {
         },
       });
   
-      console.log("data from fun", data);
-  
       likedDispatch({
         type: "DELETE_FROM_LIKED",
         payload: data.likes,
