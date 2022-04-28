@@ -6,15 +6,21 @@ import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
 import{useHistory} from "../../context/historyContext";
 import { addToHistory } from "../../Utils/addToHistory";
+import { usePlay } from "../../context/playListContext";
+import Modal from "../Modal";
+
 
 const VideoCard = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
   const navigate = useNavigate();
   const { auth } = useAuth();
+const {historyDispatch}= useHistory()
 
-  const {historyDispatch}= useHistory()
+const{playListDispatch}= usePlay()
+
   return (
     <div>
+  
       <div className="products-card-container">
         <div className="product-card">
           <div className="product-tumb">
@@ -33,10 +39,14 @@ const VideoCard = ({ video }) => {
             </span>
 
             <div>
-              <button className="clear-btn">
+              <button   className="clear-btn"
+              onClick={() =>
+                playListDispatch({type:"MODAL"})
+              }>
                 <h2>
                   <MdPlaylistAdd />
                 </h2>
+                
               </button>
 
               <button
