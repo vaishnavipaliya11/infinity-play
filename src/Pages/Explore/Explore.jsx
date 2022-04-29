@@ -9,7 +9,7 @@ import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
 import {VideoCard} from "../../Components/VideoCard/VideoCard";
-import Modal from "../../Components/Modal";
+import {Modal} from "../../Components/Modal";
 import { usePlay } from "../../context/playListContext";
 
 const Explore = () => {
@@ -18,7 +18,9 @@ const Explore = () => {
   const { data } = videoData();
   const { auth } = useAuth();
   const {playListState}= usePlay()
+
   const{modal}= playListState
+  // state -- 
   return (
     <div className="main-container">
     

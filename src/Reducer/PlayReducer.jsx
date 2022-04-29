@@ -6,8 +6,9 @@ export const playReducerFunc =(state,action)=>{
         case "MODAL_CLOSE":
             return{...state,modal:action.payload}    
         case "CREATE_PLAYLIST":
-            console.log(action.payload);
-            return{...state, createPlaylist:action.payload}
+            return{...state, createUserPlaylist:action.payload}
+        case "SELECTED_ID":
+            return{...state, selectedPlaylist:action.payload}
         default:
             return state;
     }

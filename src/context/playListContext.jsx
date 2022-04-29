@@ -5,7 +5,7 @@ const PlayListContext = createContext()
 
 const PlaylistProvider= ({children})=>{
     const [playListState, playListDispatch] = useReducer(playReducerFunc,
-        { modal:false, createPlaylist: [],usertitle:""}) 
+        { modal:false, createUserPlaylist: [],selectedPlaylist:{}, videoData:[]}) 
 return(
     <PlayListContext.Provider value={{playListState, playListDispatch}}>
     {children}

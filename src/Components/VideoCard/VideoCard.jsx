@@ -7,8 +7,8 @@ import { addToWatchLater } from "../../Utils/addToWatchLater";
 import{useHistory} from "../../context/historyContext";
 import { addToHistory } from "../../Utils/addToHistory";
 import { usePlay } from "../../context/playListContext";
-import Modal from "../Modal";
-
+import  { Modal,getVideos } from "../Modal";
+import { addDataToList } from "../../Utils/addDataToList";
 
 const VideoCard = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
@@ -40,8 +40,13 @@ const{playListDispatch}= usePlay()
 
             <div>
               <button   className="clear-btn"
-              onClick={() =>
-                playListDispatch({type:"MODAL"})
+              onClick={() => {
+                auth
+                    ? addDataToList(video, playListDispatch)
+                    : navigate("/login")
+              }
+                
+                
               }>
                 <h2>
                   <MdPlaylistAdd />
