@@ -3,13 +3,12 @@ import { usePlay } from "../context/playListContext";
 import "./modal.css";
 import { useState } from "react";
 import { createPlaylist } from "../Utils/createPlaylist";
-import {addToPlaylist} from "../Utils/addToPlaylist"
-
+import { addToPlaylist } from "../Utils/addToPlaylist";
 
 const Modal = () => {
   const { playListDispatch, playListState } = usePlay();
   const { createUserPlaylist, selectedPlaylist } = playListState;
-  console.log("create playlist",createUserPlaylist);
+  console.log("create playlist", createUserPlaylist);
 
   const [userList, setUserList] = useState("");
 
@@ -18,13 +17,11 @@ const Modal = () => {
     setUserList({ ...userList, [name]: value });
   };
 
-
   return (
     <div className="modal-main-container">
       <div className="modal-container">
         <h2>Name of Playlist</h2>
-        {createUserPlaylist.map(( data) => {
-       
+        {createUserPlaylist.map((data) => {
           const isVideo = data.videos.filter(
             (video) => video._id === selectedPlaylist._id
           );
@@ -32,10 +29,11 @@ const Modal = () => {
           console.log(selectedPlaylist);
           return (
             <div>
-              <input style={{"width":"5rem"}}
+              <input
+                style={{ width: "5rem" }}
                 className="playlist-checkbox"
                 onChange={() =>
-                  addToPlaylist(selectedPlaylist,data._id, playListDispatch)
+                  addToPlaylist(selectedPlaylist, data._id, playListDispatch)
                 }
                 type="checkbox"
                 checked={isVideo}
@@ -73,4 +71,4 @@ const Modal = () => {
   );
 };
 
-export {Modal} ;
+export { Modal };
