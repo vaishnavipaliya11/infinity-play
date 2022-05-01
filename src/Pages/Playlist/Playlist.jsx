@@ -4,10 +4,13 @@ import axios from "axios";
 import { usePlay } from "../../context/playListContext";
 import { getUserToken } from "../../Utils/getUserToken";
 import { VideoCard } from "../../Components/VideoCard/VideoCard";
+import "./Playlist.css";
+import deletePlayList from "../../Utils/deletePlayList";
+import { useNavigate } from "react-router-dom";
 
 const Playlist = () => {
   const { playListState, playListDispatch } = usePlay();
-  const { getUserPlayList } = playListState;
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -29,23 +32,36 @@ const Playlist = () => {
     })();
   }, []);
 
-  console.log(playListState.getUserPlayList);
-
   return (
-    <div>
+    <div className="playlist-container">
       <h2>This is playlist page.</h2>
-      {playListState.getUserPlayList.map(({ title, videos }) => {
+      {playListState.getUserPlayList.length === 0 ? (
+        <div>
+          <p>Seems you haven't added anything to playlist.</p>
+          <button onClick={() => navigate("/")}>Explore</button>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {playListState.getUserPlayList.map(({ title, videos, _id }) => {
         return (
-          <div className="playlist-container">
-          <h1>{title}</h1>
+          <div>
+            <h1>{title}</h1>
             {videos.map((video) => {
-              
               return (
                 <div>
-                  <VideoCard video={video}/>
+                  <VideoCard video={video} />
                 </div>
               );
             })}
+
+            <button
+              className="video-delete-btn"
+              onClick={() => deletePlayList(_id, playListDispatch)}
+            >
+              {" "}
+              Remove{" "}
+            </button>
           </div>
         );
       })}

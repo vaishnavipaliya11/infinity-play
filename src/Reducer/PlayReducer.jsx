@@ -13,6 +13,12 @@ export const playReducerFunc = (state, action) => {
         ...state,
         getUserPlayList: action.payload,
       };
+
+    case "DELETE_FROM_PLAYLIST":
+      return {
+        ...state,
+        getUserPlayList: action.payload,
+      };
     default:
       return state;
   }
