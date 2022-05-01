@@ -34,37 +34,40 @@ const Playlist = () => {
 
   return (
     <div className="playlist-container">
-      <h2>This is playlist page.</h2>
       {playListState.getUserPlayList.length === 0 ? (
         <div>
-          <p>Seems you haven't added anything to playlist.</p>
-          <button onClick={() => navigate("/")}>Explore</button>
+          <h2>Seems you haven't added anything to playlist.</h2>
+          <button  className="remove-card-btn" 
+          onClick={() => navigate("/")}>Explore</button>
         </div>
       ) : (
-        <div></div>
-      )}
-      {playListState.getUserPlayList.map(({ title, videos, _id }) => {
-        return (
-          <div>
-            <h1>{title}</h1>
-            {videos.map((video) => {
-              return (
-                <div>
-                  <VideoCard video={video} />
-                </div>
-              );
-            })}
+        <div className="playlist-video-container">
+          {playListState.getUserPlayList.map(({ title, videos, _id }) => {
+            return (
+              <div >
+                <div className="playlist-cards">
+                  <h1 className="list-title">{title}</h1>
+                  {videos.map((video) => {
+                    return (
+                      <div>
+                        <VideoCard video={video} />
+                      </div>
+                    );
+                  })}
 
-            <button
-              className="video-delete-btn"
-              onClick={() => deletePlayList(_id, playListDispatch)}
-            >
-              {" "}
-              Remove{" "}
-            </button>
-          </div>
-        );
-      })}
+                  <button
+                    className="remove-card-btn"
+                    onClick={() => deletePlayList(_id, playListDispatch)}
+                  >
+                    {" "}
+                    Remove{" "}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

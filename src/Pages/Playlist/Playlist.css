@@ -1,5 +1,32 @@
 .playlist-container{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     overflow-y: scroll;
+    overflow: auto;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 5rem);
+}
+
+.list-title{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 2px;
+    border: 3px solid white;
+    width: 14rem;
+    margin-bottom: 0;
+}
+
+.playlist-video-container{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.playlist-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

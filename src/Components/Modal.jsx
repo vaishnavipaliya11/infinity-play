@@ -8,7 +8,6 @@ import { addToPlaylist } from "../Utils/addToPlaylist";
 const Modal = () => {
   const { playListDispatch, playListState } = usePlay();
   const { createUserPlaylist, selectedPlaylist } = playListState;
-  console.log("create playlist", createUserPlaylist);
 
   const [userList, setUserList] = useState("");
 
@@ -26,9 +25,8 @@ const Modal = () => {
             (video) => video._id === selectedPlaylist._id
           );
 
-          console.log(selectedPlaylist);
           return (
-            <div>
+            <div className="modal-input-wrapper">
               <input
                 style={{ width: "5rem" }}
                 className="playlist-checkbox"
@@ -39,7 +37,7 @@ const Modal = () => {
                 checked={isVideo}
               />
 
-              <li>{data.title}</li>
+              {data.title}
             </div>
           );
         })}
@@ -59,7 +57,7 @@ const Modal = () => {
         />
 
         <button
-          className="play-btn"
+          className="playList-btn"
           onClick={() =>
             createPlaylist(userList, playListDispatch, setUserList)
           }
