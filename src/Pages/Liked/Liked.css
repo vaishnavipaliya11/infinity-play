@@ -1,5 +1,10 @@
 .liked-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow: auto;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 5rem);
 }

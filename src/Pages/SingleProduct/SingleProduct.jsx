@@ -13,12 +13,11 @@ import { useWatchLater } from "../../context/watchContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
 
 const SingleProduct = () => {
-
   const { auth } = useAuth();
   const { video_id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { likedDispatch } = useLiked();
-const{watchLaterDispatch} = useWatchLater()
+  const { watchLaterDispatch } = useWatchLater();
   const [singleVideoData, setSingleVideoData] = useState({});
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const{watchLaterDispatch} = useWatchLater()
       setSingleVideoData(resVideo);
     })();
   }, [video_id]);
-
 
   return (
     <div className="single-video-wrapper">
@@ -51,19 +49,22 @@ const{watchLaterDispatch} = useWatchLater()
           <button
             className="option-btns"
             onClick={() =>
-              auth ? addToLike(singleVideoData, likedDispatch) : navigate("./login")
+              auth
+                ? addToLike(singleVideoData, likedDispatch)
+                : navigate("./login")
             }
           >
             <AiFillLike />
           </button>
-        
+
           <button className="option-btns">
             <MdWatchLater
-            onClick={() =>
-              auth
-                ? addToWatchLater(singleVideoData, watchLaterDispatch)
-                : navigate("/login")
-            } />
+              onClick={() =>
+                auth
+                  ? addToWatchLater(singleVideoData, watchLaterDispatch)
+                  : navigate("/login")
+              }
+            />
           </button>
         </div>
       </div>
