@@ -1,11 +1,10 @@
 @import url("https://infinitee-ui.netlify.app//allstyles.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap");
 
 :root {
   --text-clr: #525252;
-  --btn-color:#ffffff;
+  --btn-color: #ffffff;
 }
 
 body {
@@ -14,7 +13,7 @@ body {
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
 }
 
 .main-container {
@@ -73,11 +72,11 @@ body {
 .products-card-container {
   border-radius: 25%;
   margin: 0 2rem;
-  
 }
-.product-card{
+.product-card {
   margin-bottom: 2rem;
-  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
 }
 .clear-btn i {
   font-size: 1rem;
@@ -90,10 +89,9 @@ body {
   justify-content: space-around;
   color: var(--text-clr);
   align-items: center;
-
 }
 
-.options a{
+.options a {
   text-decoration: none;
 }
 
@@ -103,7 +101,7 @@ body {
   top: -10px;
 }
 
-.remove-card-btn{
+.remove-card-btn {
   border: 2px solid var(--primary-color);
   padding: 0.5rem;
   border-radius: 2px;
@@ -111,13 +109,13 @@ body {
   border-radius: 5px;
 }
 
-.remove-card-btn:hover{
+.remove-card-btn:hover {
   background-color: var(--primary-color);
   color: white;
   cursor: pointer;
 }
 
-.page-cards-wrapper{
+.page-cards-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -128,6 +126,15 @@ body {
   height: calc(100vh - 5rem);
 }
 
+.letter{
+  letter-spacing: 0.1em;
+}
+.heading-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 @media screen and (max-width: 600px) {
   .main-container {
     flex-direction: column-reverse;

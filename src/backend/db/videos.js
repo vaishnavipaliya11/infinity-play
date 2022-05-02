@@ -11,6 +11,7 @@ export const videos = [
       "Make wollen caps, clothes and many more with simple texhniques.",
     creator: "India",
     category: "weaving",
+    date:"1 April 2021"
   },
   {
     _id: "pgXeFSpj7oQ",

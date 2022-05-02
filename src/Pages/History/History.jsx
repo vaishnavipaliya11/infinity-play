@@ -14,8 +14,8 @@ const History = () => {
 
       <div className="page-cards-wrapper">
         {historyVideo.length === 0 ? (
-          <div>
-          <h2>Seems you haven't seen anything yet.</h2>
+          <div className="heading-container">
+          <h2 className="letter">Seems you haven't seen anything yet.</h2>
           <button  className="remove-card-btn" 
           onClick={() => navigate("/")}>Explore</button>
         </div>
