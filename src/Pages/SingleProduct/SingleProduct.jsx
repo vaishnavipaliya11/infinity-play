@@ -9,6 +9,8 @@ import { AiFillLike } from "react-icons/ai";
 import { useAuth } from "../../context/authContext";
 import { addToLike } from "../../Utils/addToLike";
 import { useLiked } from "../../context/likeContext";
+import { useWatchLater } from "../../context/watchContext";
+import { addToWatchLater } from "../../Utils/addToWatchLater";
 
 const SingleProduct = () => {
 
@@ -16,7 +18,7 @@ const SingleProduct = () => {
   const { video_id } = useParams();
   const navigate = useNavigate()
   const { likedDispatch } = useLiked();
-
+const{watchLaterDispatch} = useWatchLater()
   const [singleVideoData, setSingleVideoData] = useState({});
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const SingleProduct = () => {
 
 
   return (
-    <div>
+    <div className="single-video-wrapper">
       <div className="video-container">
         <div className="single-video-container">
           <iframe
@@ -54,11 +56,14 @@ const SingleProduct = () => {
           >
             <AiFillLike />
           </button>
+        
           <button className="option-btns">
-            <MdPlaylistAdd />
-          </button>
-          <button className="option-btns">
-            <MdWatchLater />
+            <MdWatchLater
+            onClick={() =>
+              auth
+                ? addToWatchLater(singleVideoData, watchLaterDispatch)
+                : navigate("/login")
+            } />
           </button>
         </div>
       </div>
