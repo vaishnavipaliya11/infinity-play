@@ -35,6 +35,21 @@ const Login = () => {
 
    };
 
+   const testHandler =async(e)=>{
+     console.log("called");
+     e.preventDefault()
+    try {
+      const { data } = await axios.post("api/auth/login", {
+        email: "adarshbalika@gmail.com",
+        password: "adarshBalika123",
+      });
+      localStorage.setItem("token", data.encodedToken);
+      setAuth(true);
+      navigate("/");
+    } catch (error) {
+      alert(error);
+    }
+   }
       
       
   return (
@@ -66,6 +81,8 @@ const Login = () => {
             <div>
             <p> Don't have an account ?
             </p>
+
+            <button onClick={(e)=>testHandler(e)}>Test Credentitals</button>
 
             <button onClick={(e)=> loginHanddler(e)}>Login</button>
             
