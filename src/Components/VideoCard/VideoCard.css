@@ -1,0 +1,9 @@
+.prod-title{
+    text-decoration: none;
+    letter-spacing: 0.1em
+}
+
+.prod-title:hover{
+    cursor: pointer;
+    color: var(--primary-color);
+}

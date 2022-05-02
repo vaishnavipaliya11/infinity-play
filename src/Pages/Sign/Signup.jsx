@@ -1,14 +1,13 @@
 import React from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const Signup = () => {
-  
-  const  navigate = useNavigate()
+  const navigate = useNavigate();
   const { auth, setAuth } = useAuth();
-  const [erorMsg, setErrorMsg]= useState(false)
+  const [erorMsg, setErrorMsg] = useState(false);
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -21,12 +20,11 @@ const Signup = () => {
     setUserData({ ...userData, [name]: value });
 
     setErrorMsg(false);
-    
   };
 
   const signUpHandler = async (e) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     try {
       const response = await axios.post("/api/auth/signup", {
         firstName: userData.firstName,
@@ -44,8 +42,10 @@ const Signup = () => {
     }
 
     if (
-      !userData.firstName ||!userData.lastName ||
-      !userData.Email || !userData.Password
+      !userData.firstName ||
+      !userData.lastName ||
+      !userData.Email ||
+      !userData.Password
     ) {
       setErrorMsg(true);
       return;
@@ -55,68 +55,64 @@ const Signup = () => {
   return (
     <div className="form-container">
       <div className="validation">
+        <h2>Sign Up</h2>
         <form action="">
           <div>
-            <label for="Name">First Name</label>
             <input
               type="text"
               className="form-input"
-              placeholder="Enter your Name "
+              placeholder="Enter your First Name "
               name="firstName"
               onChange={handelUserInput}
               value={userData.firstName}
             />
           </div>
 
-          
-
           <div>
-            <label for="Name">Last Name</label>
             <input
               type="text"
               className="form-input"
               name="lastName"
-              placeholder="Balika"
+              placeholder="Enter your Last Name"
               onChange={handelUserInput}
               value={userData.lastName}
             />
           </div>
 
           <div>
-            <label for="email">Email</label>
             <input
-              type="text"
+              type="email"
               className="form-input"
               name="Email"
-              placeholder="abcd@gmail.com"
+              placeholder="Enter your email"
               onChange={handelUserInput}
               value={userData.Email}
             />
           </div>
 
           <div>
-            <label for="password">Password</label>
             <input
               type="password"
               className="form-input"
-              placeholder="abcd"
+              placeholder="Enter your password"
               name="Password"
               onChange={handelUserInput}
               value={userData.Password}
             ></input>
           </div>
 
-          <div style={{color:"red"}}>
-          <p>{erorMsg && "Enter the feilds"}</p>
+          <div style={{ color: "red" }}>
+            <p>{erorMsg && "Enter the feilds"}</p>
           </div>
 
           <div>
-          <Link to="/login">
-          <p > Already have an account?</p>
-          </Link>
-      
-            <button onClick={signUpHandler}>Sign up</button>
-            
+            <Link to="/login">
+              <p> Already have an account?</p>
+            </Link>
+
+            <button className="remove-card-btn" onClick={signUpHandler}>
+              Sign up
+            </button>
           </div>
         </form>
       </div>

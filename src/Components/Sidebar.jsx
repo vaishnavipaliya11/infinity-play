@@ -13,7 +13,7 @@ const Sidebar = () => {
       <nav>
         <ul className="options-list fs-lrg pd-lrg">
           <div className="options">
-            <NavLink style={getActiveStyle} to="/" className="pd-med">
+            <NavLink style={getActiveStyle} to="/" className="pd-med ">
               Explore
             </NavLink>
             <h3>

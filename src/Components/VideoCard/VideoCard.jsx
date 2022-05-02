@@ -4,23 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
-import{useHistory} from "../../context/historyContext";
+import { useHistory } from "../../context/historyContext";
 import { addToHistory } from "../../Utils/addToHistory";
 import { usePlay } from "../../context/playListContext";
-import  { Modal,getVideos } from "../Modal";
+import { Modal, getVideos } from "../Modal";
 import { addDataToList } from "../../Utils/addDataToList";
+import "./VideoCard.css";
 
 const VideoCard = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
   const navigate = useNavigate();
   const { auth } = useAuth();
-const {historyDispatch}= useHistory()
+  const { historyDispatch } = useHistory();
 
-const{playListDispatch}= usePlay()
+  const { playListDispatch } = usePlay();
 
   return (
     <div>
-  
       <div className="products-card-container">
         <div className="product-card">
           <div className="product-tumb">
@@ -29,29 +29,31 @@ const{playListDispatch}= usePlay()
           <div className="product-details">
             <span className="product-catagory">
               <Link to={`/singlevideo/${video._id}`}>
-                <p className="prod-title"
-                onClick={() =>
-                  auth
-                    ? addToHistory(video, historyDispatch)
-                    : navigate("/login")
-                }>{video.title}</p>
+                <p
+                  className="prod-title"
+                  onClick={() =>
+                    auth
+                      ? addToHistory(video, historyDispatch)
+                      : navigate("/login")
+                  }
+                >
+                  {video.title}
+                </p>
               </Link>
             </span>
 
             <div>
-              <button   className="clear-btn"
-              onClick={() => {
-                auth
+              <button
+                className="clear-btn"
+                onClick={() => {
+                  auth
                     ? addDataToList(video, playListDispatch)
-                    : navigate("/login")
-              }
-                
-                
-              }>
+                    : navigate("/login");
+                }}
+              >
                 <h2>
                   <MdPlaylistAdd />
                 </h2>
-                
               </button>
 
               <button

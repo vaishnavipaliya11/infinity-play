@@ -1,5 +1,7 @@
 @import url("https://infinitee-ui.netlify.app//allstyles.css");
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=IBM+Plex+Sans:wght@100&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap');
+
 
 :root {
   --text-clr: #525252;
@@ -12,7 +14,7 @@ body {
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .main-container {
@@ -88,6 +90,11 @@ body {
   justify-content: space-around;
   color: var(--text-clr);
   align-items: center;
+
+}
+
+.options a{
+  text-decoration: none;
 }
 
 .badge {
@@ -101,11 +108,13 @@ body {
   padding: 0.5rem;
   border-radius: 2px;
   color: var(--primary-color);
+  border-radius: 5px;
 }
 
 .remove-card-btn:hover{
   background-color: var(--primary-color);
   color: white;
+  cursor: pointer;
 }
 
 .page-cards-wrapper{
