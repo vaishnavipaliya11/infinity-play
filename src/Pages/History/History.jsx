@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import { useHistory } from "../../context/historyContext";
 import { deleteHistory } from "../../Utils/deleteHistory";
@@ -6,16 +7,18 @@ import { deleteHistory } from "../../Utils/deleteHistory";
 const History = () => {
   const { historyState, historyDispatch } = useHistory();
   const { historyVideo } = historyState;
+  const navigate= useNavigate()
 
   return (
-    <div>
-      <h2>This is history page. </h2>
+  
 
-      <div>
+      <div className="page-cards-wrapper">
         {historyVideo.length === 0 ? (
-          <div className="liked-heading">
-            <h3>You haven't watched anything yet. </h3>
-          </div>
+          <div>
+          <h2>Seems you haven't seen anything yet.</h2>
+          <button  className="remove-card-btn" 
+          onClick={() => navigate("/")}>Explore</button>
+        </div>
         ) : (
           <div className="liked-container">
             {historyVideo.map((video) => {
@@ -37,7 +40,7 @@ const History = () => {
           </div>
         )}
       </div>
-    </div>
+    
   );
 };
 

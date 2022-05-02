@@ -4,11 +4,13 @@ import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import { deleteLikedVideo } from "../../Utils/deleteLike";
 
 import "./Liked.css";
+import { useNavigate } from "react-router-dom";
 const Liked = () => {
   const { likedState, likedDispatch } = useLiked();
   const { likedVideo } = likedState;
+  const navigate = useNavigate();
   return (
-    <div className="liked-container">
+    <div className="page-cards-wrapper">
       {likedVideo.length === 0 ? (
         <div className="liked-heading">
           <h2>Seems you haven't liked anything yet.</h2>
