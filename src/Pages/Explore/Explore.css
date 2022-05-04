@@ -9,10 +9,15 @@ body {
   font-family: "Barlow Condensed", sans-serif;
 }
 
-.prod-title{
+.prod-title {
   letter-spacing: 0.2em;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.modal-main-container {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 600px) {
