@@ -28,14 +28,15 @@ const VideoCard = ({ video }) => {
           </div>
           <div className="product-details">
             <span className="product-catagory">
-              <Link to={`/singlevideo/${video._id}`}>
+              <Link to={`/singlevideo/${video._id}`}
+              onClick={() =>
+                auth
+                  ? addToHistory(video, historyDispatch)
+                  : navigate("/login")
+              }>
                 <p
                   className="prod-title"
-                  onClick={() =>
-                    auth
-                      ? addToHistory(video, historyDispatch)
-                      : navigate("/login")
-                  }
+                  
                 >
                   {video.title}
                 </p>

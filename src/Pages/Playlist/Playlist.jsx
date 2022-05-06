@@ -33,7 +33,7 @@ const Playlist = () => {
   }, []);
 
   return (
-    <div className="playlist-container">
+    <div className="page-cards-wrapper">
       {playListState.getUserPlayList.length === 0 ? (
         <div>
           <h2>Seems you haven't added anything to playlist.</h2>

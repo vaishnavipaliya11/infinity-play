@@ -1,3 +1,39 @@
 @import url("../styles.css");
 
+.options a{
+text-decoration: none;
+color: var(--text-clr);
+}
 
+.sidebar-container {
+    display: flex;
+    width: max-content;
+    padding: 0.5rem;
+    overflow: hidden;
+    flex-direction: column;
+    letter-spacing: 0.2em;
+    color: black;
+  }
+  
+  .sidebar-container Link {
+    list-style: none;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-clr);
+    align-items: center;
+  }
+  
+  .options a {
+    text-decoration: none;
+  }
+
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    list-style: none;
+  }

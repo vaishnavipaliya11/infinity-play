@@ -8,3 +8,7 @@
     cursor: pointer;
     color: var(--primary-color);
 }
+
+.product-catagory a{
+    text-decoration: none;
+}

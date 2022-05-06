@@ -3,6 +3,7 @@ import { FaHistory } from "react-icons/fa";
 import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
+import "./Sidebar.css"
 
 const Sidebar = () => {
   const getActiveStyle = ({ isActive }) => ({
@@ -11,7 +12,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <nav>
-        <ul className="options-list fs-lrg pd-lrg">
+        <ul className="options-list fs-lrg ">
           <div className="options">
             <NavLink style={getActiveStyle} to="/" className="pd-med ">
               Explore

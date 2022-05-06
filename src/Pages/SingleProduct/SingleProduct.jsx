@@ -51,7 +51,7 @@ const SingleProduct = () => {
             onClick={() =>
               auth
                 ? addToLike(singleVideoData, likedDispatch)
-                : navigate("./login")
+                : navigate("/login")
             }
           >
             <AiFillLike />
