@@ -10,7 +10,6 @@ const deletePlayList = async (_id, playListDispatch) => {
           authorization: getUserToken(),
         },
       });
-      console.log("from func", data);
     playListDispatch({
         type: "DELETE_FROM_PLAYLIST",
         payload:data.playlists,
