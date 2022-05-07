@@ -17,7 +17,7 @@ const deletePlayList = async (_id, playListDispatch) => {
       })
    
   } catch (error) {
-    console.log(error);
+    console.error();
   }
 };
 

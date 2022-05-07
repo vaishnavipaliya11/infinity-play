@@ -26,14 +26,12 @@ const Login = () => {
       localStorage.setItem("token", response.data.encodedToken);
       setAuth(true);
       navigate("/");
-      console.log(response);
     } catch (error) {
-      console.log(error);
+     console.error();;
     }
   };
 
   const testHandler = async (e) => {
-    console.log("called");
     e.preventDefault();
     try {
       const { data } = await axios.post("api/auth/login", {

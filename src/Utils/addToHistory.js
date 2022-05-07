@@ -18,7 +18,7 @@ const addToHistory = async (video, historyDispatch) =>{
         historyDispatch({type:"ADD_TO_HISTORY", payload: data.history})
 
     } catch (error) {
-        console.log(error);
+        console.error()
     }
 }
 

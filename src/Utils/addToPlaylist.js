@@ -18,7 +18,7 @@ const addToPlaylist = async (video, _id, playListDispatch) => {
       payload: response.data.playlist,
     });
   } catch (error) {
-    console.log(error);
+    console.error();
   }
 };
 

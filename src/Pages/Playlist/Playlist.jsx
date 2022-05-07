@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { usePlay } from "../../context/playListContext";
 import { getUserToken } from "../../Utils/getUserToken";
@@ -21,7 +20,6 @@ const Playlist = () => {
           },
         });
 
-        console.log("response", response.data.playlists);
         playListDispatch({
           type: "GET_PLAYLIST",
           payload: response.data.playlists,
@@ -37,14 +35,15 @@ const Playlist = () => {
       {playListState.getUserPlayList.length === 0 ? (
         <div>
           <h2>Seems you haven't added anything to playlist.</h2>
-          <button  className="remove-card-btn" 
-          onClick={() => navigate("/")}>Explore</button>
+          <button className="remove-card-btn" onClick={() => navigate("/")}>
+            Explore
+          </button>
         </div>
       ) : (
         <div className="playlist-video-container">
           {playListState.getUserPlayList.map(({ title, videos, _id }) => {
             return (
-              <div >
+              <div>
                 <div className="playlist-cards">
                   <h1 className="list-title">{title}</h1>
                   {videos.map((video) => {
