@@ -102,7 +102,7 @@ const Signup = () => {
           </div>
 
           <div style={{ color: "red" }}>
-            <p>{erorMsg && "Enter the feilds"}</p>
+            <p>{erorMsg && "Enter the fields"}</p>
           </div>
 
           <div>
