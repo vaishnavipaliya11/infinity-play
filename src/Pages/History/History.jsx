@@ -4,6 +4,7 @@ import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import { useAuth } from "../../context/authContext";
 import { useHistory } from "../../context/historyContext";
 import { deleteHistory } from "../../Utils/deleteHistory";
+import { deleteAllHistory } from "../../Utils/deleteAllHist";
 
 const History = () => {
   const { historyState, historyDispatch } = useHistory();
@@ -12,7 +13,9 @@ const History = () => {
   const { auth } = useAuth();
 
   return (
+   
     <div className="page-cards-wrapper">
+    
       {auth ? (
         <div>
           {historyVideo.length === 0 ? (
@@ -40,7 +43,11 @@ const History = () => {
                   </div>
                 );
               })}
+              <div className="delete-all-btn">
+      <button onClick={()=> deleteAllHistory(historyDispatch)}>delete all</button>
+      </div>
             </div>
+            
           )}
         </div>
       ) : (
@@ -49,7 +56,10 @@ const History = () => {
           <button onClick={() => navigate("/login")}>Login</button>
         </div>
       )}
+
+      
     </div>
+   
   );
 };
 

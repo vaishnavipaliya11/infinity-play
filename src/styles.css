@@ -113,6 +113,12 @@ body {
   margin: 0;
   height: 12.5rem;
 }
+
+.delete-all-btn{
+  display: flex;
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 600px) {
   .main-container {
     flex-direction: column-reverse;

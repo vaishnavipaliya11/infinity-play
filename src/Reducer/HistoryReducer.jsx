@@ -6,6 +6,9 @@ const historyReduFunc = (state,action) => {
     case "DELETE_FROM_HISTORY":
       return { ...state, historyVideo: action.payload };
 
+      case "DELETE_ALL":
+        return{...state,historyVideo:action.payload}
+
     default:
       return state;
   }
