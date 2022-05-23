@@ -1,25 +1,20 @@
 import axios from "axios"
 import { getUserToken } from "./getUserToken";
-const addToHistory = async (video, historyDispatch) =>{
-
+export const deleteAllHistory = async (historyDispatch) =>{
+console.log("called");
     try {
         const {data}= await axios({
-            method:"POST",
-            url:"/api/user/history",
+            method:"DELETE",
+            url:"/api/user/history/all",
             headers:{
                 authorization:getUserToken(),
             },
-            data:{
-                video:video
-            }
         })
 
         
-        historyDispatch({type:"ADD_TO_HISTORY", payload: data.history})
+        historyDispatch({type:"DELETE_ALL", payload: data.history})
 
     } catch (error) {
         console.error()
     }
 }
-
-export{addToHistory}

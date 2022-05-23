@@ -21,7 +21,7 @@ import { getUserToken } from "./getUserToken";
         }
       );
   
-      console.log(response);
+      
       playListDispatch({
         type: "CREATE_PLAYLIST",
         payload: response.data.playlists,
@@ -29,7 +29,7 @@ import { getUserToken } from "./getUserToken";
 
       setUserList({ ...userList, title: "" });
     } catch (error) {
-      console.log(error);
+      console.error();
     }
   };
 

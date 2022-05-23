@@ -4,14 +4,19 @@ import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import { deleteLikedVideo } from "../../Utils/deleteLike";
 
 import "./Liked.css";
+import { useNavigate } from "react-router-dom";
 const Liked = () => {
   const { likedState, likedDispatch } = useLiked();
   const { likedVideo } = likedState;
+  const navigate = useNavigate();
   return (
-    <div className="liked-container">
+    <div className="page-cards-wrapper">
       {likedVideo.length === 0 ? (
         <div className="liked-heading">
-          <h3>You Don't have Liked the videos </h3>
+          <h2>Seems you haven't liked anything yet.</h2>
+          <button className="remove-card-btn" onClick={() => navigate("/")}>
+            Explore
+          </button>
         </div>
       ) : (
         <div className="liked-container">
@@ -22,7 +27,7 @@ const Liked = () => {
                 <VideoCard key={video._id} video={video} />
 
                 <button
-                  className="video-delete-btn"
+                  className="remove-card-btn"
                   onClick={() => deleteLikedVideo(_id, likedDispatch)}
                 >
                   {" "}
