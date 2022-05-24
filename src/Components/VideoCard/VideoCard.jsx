@@ -10,15 +10,26 @@ import { usePlay } from "../../context/playListContext";
 import { Modal, getVideos } from "../Modal";
 import { addDataToList } from "../../Utils/addDataToList";
 import "./VideoCard.css";
+import { deleteWatchLater } from "../../Utils/deleteWatchLater";
 
 const VideoCard = ({ video }) => {
-  const { watchLaterDispatch } = useWatchLater();
+  const {watchLaterState, watchLaterDispatch } = useWatchLater();
+  const {watchLater}= watchLaterState
   const navigate = useNavigate();
   const { auth } = useAuth();
   const { historyDispatch } = useHistory();
 
   const { playListDispatch } = usePlay();
 
+  const watchlaterHandler = (video)=>{
+    if(watchLater.find((item)=> item._id === video._id)){
+      deleteWatchLater(video._id,watchLaterDispatch)
+    }else if (auth){
+      addToWatchLater(video, watchLaterDispatch)
+    }else{
+      navigate("/login")
+    }
+  }
   return (
     <div>
       <div className="products-card-container">
@@ -46,11 +57,7 @@ const VideoCard = ({ video }) => {
             <div>
               <button
                 className="clear-btn"
-                onClick={() => {
-                  auth
-                    ? addDataToList(video, playListDispatch)
-                    : navigate("/login");
-                }}
+                onClick={() => watchlaterHandler(video)}
               >
                 <h2>
                   <MdPlaylistAdd />
@@ -59,10 +66,7 @@ const VideoCard = ({ video }) => {
 
               <button
                 className="clear-btn"
-                onClick={() =>
-                  auth
-                    ? addToWatchLater(video, watchLaterDispatch)
-                    : navigate("/login")
+                onClick={()=> watchlaterHandler(video)
                 }
               >
                 <h3>

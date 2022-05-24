@@ -11,8 +11,6 @@ const deleteWatchLater = async (_id, watchLaterDispatch) => {
       },
     });
 
-    console.log("data from fun", data);
-
     watchLaterDispatch({
       type: "DELETE_FROM_WATCH_LATER",
       payload: data.watchlater,

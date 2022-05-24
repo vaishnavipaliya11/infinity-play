@@ -1,7 +1,6 @@
 import axios from 'axios'
 import {getUserToken} from "./getUserToken"
 const addToWatchLater= async (video,watchLaterDispatch) =>{
-    
 
 
     try{
@@ -17,12 +16,11 @@ const addToWatchLater= async (video,watchLaterDispatch) =>{
             }
         })
 
-        console.log("data from fun", data);
 
         watchLaterDispatch({type:"ADD_TO_WATCH_LATER",payload:data.watchlater})
     }
     catch (e) {
-        console.log("Something went wrong",e);
+        console.log(e.response);
       }
 }
 
