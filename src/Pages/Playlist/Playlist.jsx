@@ -6,6 +6,7 @@ import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import "./Playlist.css";
 import deletePlayList from "../../Utils/deletePlayList";
 import { useNavigate } from "react-router-dom";
+import { deleteVideo } from "../../Utils/deleteVideo";
 
 const Playlist = () => {
   const { playListState, playListDispatch } = usePlay();
@@ -30,6 +31,10 @@ const Playlist = () => {
     })();
   }, []);
 
+  // const deleteVideoHandler = ()=>{
+  //   deleteVideo(_id,_id,playListDispatch)
+  // }
+  console.log(playListState.getUserPlayList);
   return (
     <div className="page-cards-wrapper">
       {playListState.getUserPlayList.length === 0 ? (
@@ -41,30 +46,40 @@ const Playlist = () => {
         </div>
       ) : (
         <div className="playlist-video-container">
-          {playListState.getUserPlayList.map(({ title, videos, _id }) => {
-            return (
-              <div>
-                <div className="playlist-cards">
-                  <h1 className="list-title">{title}</h1>
-                  {videos.map((video) => {
-                    return (
-                      <div>
-                        <VideoCard video={video} />
-                      </div>
-                    );
-                  })}
+          {playListState.getUserPlayList.length !== 0 &&
+            playListState.getUserPlayList.map(({ title, videos, _id }) => {
+              const playlistId = _id;
+              return (
+                <div>
+                  <div className="playlist-cards">
+                    <h1 className="list-title">{title}</h1>
+                    {videos.map((video) => {
+                      const videoId = video._id;
+                      return (
+                        <div>
+                          <VideoCard video={video} />
+                          <button
+                            onClick={() =>
+                              deleteVideo(playlistId, videoId, playListDispatch)
+                            }
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      );
+                    })}
 
-                  <button
-                    className="remove-card-btn"
-                    onClick={() => deletePlayList(_id, playListDispatch)}
-                  >
-                    {" "}
-                    Remove{" "}
-                  </button>
+                    <button
+                      className="remove-card-btn"
+                      onClick={() => deletePlayList(_id, playListDispatch)}
+                    >
+                      {" "}
+                      Remove{" "}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       )}
     </div>

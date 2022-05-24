@@ -34,7 +34,7 @@ const Modal = () => {
                   addToPlaylist(selectedPlaylist, data._id, playListDispatch)
                 }
                 type="checkbox"
-                checked={isVideo}
+                // checked={isVideo}
               />
 
               {data.title}
