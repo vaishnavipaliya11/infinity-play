@@ -13,23 +13,23 @@ import "./VideoCard.css";
 import { deleteWatchLater } from "../../Utils/deleteWatchLater";
 
 const VideoCard = ({ video }) => {
-  const {watchLaterState, watchLaterDispatch } = useWatchLater();
-  const {watchLater}= watchLaterState
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
+  const { watchLater } = watchLaterState;
   const navigate = useNavigate();
   const { auth } = useAuth();
   const { historyDispatch } = useHistory();
 
   const { playListDispatch } = usePlay();
 
-  const watchlaterHandler = (video)=>{
-    if(watchLater.find((item)=> item._id === video._id)){
-      deleteWatchLater(video._id,watchLaterDispatch)
-    }else if (auth){
-      addToWatchLater(video, watchLaterDispatch)
-    }else{
-      navigate("/login")
+  const watchlaterHandler = (video) => {
+    if (watchLater.find((item) => item._id === video._id)) {
+      deleteWatchLater(video._id, watchLaterDispatch);
+    } else if (auth) {
+      addToWatchLater(video, watchLaterDispatch);
+    } else {
+      navigate("/login");
     }
-  }
+  };
   return (
     <div>
       <div className="products-card-container">
@@ -39,25 +39,22 @@ const VideoCard = ({ video }) => {
           </div>
           <div className="product-details">
             <span className="product-catagory">
-              <Link to={`/singlevideo/${video._id}`}
-              onClick={() =>
-                auth
-                  ? addToHistory(video, historyDispatch)
-                  : navigate("/login")
-              }>
-                <p
-                  className="prod-title"
-                  
-                >
-                  {video.title}
-                </p>
+              <Link
+                to={`/singlevideo/${video._id}`}
+                onClick={() =>
+                  auth
+                    ? addToHistory(video, historyDispatch)
+                    : navigate("/login")
+                }
+              >
+                <p className="prod-title">{video.title}</p>
               </Link>
             </span>
 
             <div>
               <button
                 className="clear-btn"
-                onClick={() => watchlaterHandler(video)}
+                onClick={() => addDataToList(video, playListDispatch)}
               >
                 <h2>
                   <MdPlaylistAdd />
@@ -66,15 +63,12 @@ const VideoCard = ({ video }) => {
 
               <button
                 className="clear-btn"
-                onClick={()=> watchlaterHandler(video)
-                }
+                onClick={() => watchlaterHandler(video)}
               >
                 <h3>
                   <MdWatchLater />
                 </h3>
               </button>
-
-             
             </div>
           </div>
         </div>
