@@ -66,7 +66,7 @@ const Login = () => {
             <input
               className="form-input"
               name="password"
-              type="text"
+              type="password"
               class="form-input"
               placeholder="Enter your password"
               onChange={(e) => onChangehandler(e)}
