@@ -31,10 +31,7 @@ const Playlist = () => {
     })();
   }, []);
 
-  // const deleteVideoHandler = ()=>{
-  //   deleteVideo(_id,_id,playListDispatch)
-  // }
-  console.log(playListState.getUserPlayList);
+
   return (
     <div className="page-cards-wrapper">
       {playListState.getUserPlayList.length === 0 ? (
