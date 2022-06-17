@@ -1,7 +1,7 @@
 export const playReducerFunc = (state, action) => {
   switch (action.type) {
     case "MODAL":
-      return { ...state, modal: !state.modal };
+      return { ...state, modal: action.payload };
     case "MODAL_CLOSE":
       return { ...state, modal: action.payload };
     case "CREATE_PLAYLIST":

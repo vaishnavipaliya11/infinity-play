@@ -23,9 +23,9 @@ const Explore = () => {
   return (
     <div className="main-container">
       <div className="video-cards-container">
-        <div className="modal-main-container">
+       
         {modal ? <Modal /> : ""}
-        </div>
+        
 
         {data.map((video) => {
           return <VideoCard video={video} />;
