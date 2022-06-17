@@ -8,7 +8,7 @@ import { Login } from "./Pages/Login/Login";
 import {Explore} from "./Pages/Explore/Explore";
 import  {Navbar} from "../src/Components/Navbar"
 import { Sidebar } from "./Components/Sidebar";
-
+import { Toaster } from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 import Signup from "./Pages/Sign/Signup";
 import { SingleProduct } from "./Pages/SingleProduct/SingleProduct";
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
     <Navbar/>
-
+    <Toaster/>
     <div className="page-container">
     <Sidebar/>
     <Routes>

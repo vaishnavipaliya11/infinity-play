@@ -1,5 +1,6 @@
 import axios from "axios"
 import { getUserToken } from "./getUserToken";
+import toast from "react-hot-toast";
 const addToHistory = async (video, historyDispatch) =>{
 
     try {
@@ -13,8 +14,6 @@ const addToHistory = async (video, historyDispatch) =>{
                 video:video
             }
         })
-
-        
         historyDispatch({type:"ADD_TO_HISTORY", payload: data.history})
 
     } catch (error) {
