@@ -4,13 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdPlaylistAdd, MdExplore } from "react-icons/md";
 import { AiFillHeart } from "react-icons/ai";
 import { FaSignOutAlt, FaUserAlt } from "react-icons/fa";
-
 import { FaInfinity } from "react-icons/fa";
 import { useAuth } from "../context/authContext";
+import { useData } from "../context/dataContext";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
+  const { search, setSearch } = useData();
   const logOutHandler = () => {
     setAuth(localStorage.removeItem("token"));
     navigate("/login");
@@ -27,6 +28,16 @@ const Navbar = () => {
           </h2>
         </nav>
       </header>
+
+      <div>
+        <input
+          placeholder="search videos"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </div>
 
       <div className="nav-options">
         <Link to="/">
