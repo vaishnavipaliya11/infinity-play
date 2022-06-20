@@ -1,5 +1,9 @@
 import React from "react";
-import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
+import {
+  MdPlaylistAdd,
+  MdWatchLater,
+  MdOutlineWatchLater,
+} from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
@@ -57,18 +61,30 @@ const VideoCard = ({ video }) => {
                 onClick={() => addDataToList(video, playListDispatch)}
               >
                 <h2>
-                  <MdPlaylistAdd />
+                  <MdPlaylistAdd className="icon-filled" />
                 </h2>
               </button>
 
-              <button
-                className="clear-btn"
-                onClick={() => watchlaterHandler(video)}
-              >
-                <h3>
-                  <MdWatchLater />
-                </h3>
-              </button>
+              {watchLater.find((item) => item._id === video._id) ? (
+                <button
+                  className="clear-btn"
+                  onClick={() => watchlaterHandler(video)}
+                >
+                  <h2>
+                  <MdWatchLater className="icon-filled" />
+                  </h2>
+                </button>
+              ) : (
+                <button
+                  className="clear-btn"
+                  onClick={() => watchlaterHandler(video)}
+                >
+                  <h2>
+                  <MdOutlineWatchLater className="icon-filled"/>
+                   
+                  </h2>
+                </button>
+              )}
             </div>
           </div>
         </div>
