@@ -5,19 +5,21 @@ import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
 import "./SingleProduct.css";
 import { getVideo } from "../../Utils/getVideo";
 import { useState } from "react";
-import { AiFillLike } from "react-icons/ai";
+import { AiFillLike ,AiOutlineLike} from "react-icons/ai";
 import { useAuth } from "../../context/authContext";
 import { addToLike } from "../../Utils/addToLike";
 import { useLiked } from "../../context/likeContext";
 import { useWatchLater } from "../../context/watchContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
-
+import { deleteLikedVideo } from "../../Utils/deleteLike";
 
 const SingleProduct = () => {
   const { auth } = useAuth();
   const { video_id } = useParams();
   const navigate = useNavigate();
-  const { likedDispatch } = useLiked();
+  const { likedState, likedDispatch } = useLiked();
+  const { likedVideo } = likedState;
+  console.log(likedVideo);
   const { watchLaterDispatch } = useWatchLater();
   const [singleVideoData, setSingleVideoData] = useState({});
 
@@ -27,6 +29,14 @@ const SingleProduct = () => {
       setSingleVideoData(resVideo);
     })();
   }, [video_id]);
+
+  const likeHandler = () => {
+    {
+      likedVideo.find((item) => item._id === video_id ) ?
+      deleteLikedVideo(video_id, likedDispatch):
+      addToLike(singleVideoData,likedDispatch)
+    }
+  };
 
   return (
     <div className="single-video-wrapper">
@@ -47,16 +57,23 @@ const SingleProduct = () => {
       <div className="video-btn-title-set">
         <p className="video-title">{singleVideoData.title}</p>
         <div className="video-btns">
-          <button
-            className="option-btns"
-            onClick={() =>
-              auth
-                ? addToLike(singleVideoData, likedDispatch)
-                : navigate("/login")
-            }
-          >
-            <AiFillLike />
-          </button>
+          {likedVideo.find((item)  => item._id === video_id ) ? (
+            <button
+              className="option-btns"
+              onClick={() => (auth ? likeHandler() : navigate("/login"))}
+            >
+             
+             <AiFillLike className="icon-filled"/>
+            </button>
+          ) : (
+            <button
+              className="option-btns"
+              onClick={() => (auth ? likeHandler() : navigate("/login"))}
+            >
+              <AiOutlineLike className="icon-filled"/>
+            </button>
+          )}
+          
 
           <button className="option-btns">
             <MdWatchLater

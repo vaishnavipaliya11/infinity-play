@@ -8,7 +8,7 @@ export const videos = [
     _id: "c0VzgM8gkUA",
     title: "Wollen Caps",
     description:
-      "Make wollen caps, clothes and many more with simple texhniques.",
+      "Make wollen caps, clothes and many more with simple texhniques. Learn how to make wollen caps and get ready for winters!!",
     creator: "India",
     category: "weaving",
     date:"1 April 2021"
