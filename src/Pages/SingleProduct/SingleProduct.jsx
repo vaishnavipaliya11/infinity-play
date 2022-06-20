@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
+import { MdPlaylistAdd, MdWatchLater,MdOutlineWatchLater } from "react-icons/md";
 import "./SingleProduct.css";
 import { getVideo } from "../../Utils/getVideo";
 import { useState } from "react";
@@ -12,15 +12,17 @@ import { useLiked } from "../../context/likeContext";
 import { useWatchLater } from "../../context/watchContext";
 import { addToWatchLater } from "../../Utils/addToWatchLater";
 import { deleteLikedVideo } from "../../Utils/deleteLike";
-
+import { deleteWatchLater } from "../../Utils/deleteWatchLater";
 const SingleProduct = () => {
   const { auth } = useAuth();
   const { video_id } = useParams();
   const navigate = useNavigate();
   const { likedState, likedDispatch } = useLiked();
   const { likedVideo } = likedState;
-  console.log(likedVideo);
-  const { watchLaterDispatch } = useWatchLater();
+ 
+  const {watchLaterState, watchLaterDispatch } = useWatchLater();
+  const {watchLater}= watchLaterState
+  console.log(watchLater);
   const [singleVideoData, setSingleVideoData] = useState({});
 
   useEffect(() => {
@@ -37,6 +39,12 @@ const SingleProduct = () => {
       addToLike(singleVideoData,likedDispatch)
     }
   };
+
+  const watchHandler = () =>{
+    {watchLater.find((eachvideo) => eachvideo._id === video_id) ?
+    deleteWatchLater(video_id,watchLaterDispatch) :
+    addToWatchLater(singleVideoData,watchLaterDispatch)}
+  }
 
   return (
     <div className="single-video-wrapper">
@@ -74,16 +82,23 @@ const SingleProduct = () => {
             </button>
           )}
           
-
-          <button className="option-btns">
-            <MdWatchLater
-              onClick={() =>
-                auth
-                  ? addToWatchLater(singleVideoData, watchLaterDispatch)
-                  : navigate("/login")
-              }
-            />
-          </button>
+            {watchLater.find((eachvideo)=> eachvideo._id === video_id) ?
+            <button className="option-btns"
+            onClick={() =>
+              auth
+                ? watchHandler()
+                : navigate("/login")
+            }> <MdWatchLater className="icon-filled"/>
+            </button> :
+          <button className="option-btns"
+          onClick={() =>
+            auth
+              ? watchHandler()
+              : navigate("/login")
+          }>
+          <MdOutlineWatchLater className="icon-filled"/>
+          </button>}
+          
         </div>
       </div>
       <p className="video-description">{singleVideoData.description}</p>
