@@ -23,7 +23,9 @@ const VideoCard = ({ video }) => {
   const { auth } = useAuth();
   const { historyDispatch } = useHistory();
 
-  const { playListDispatch } = usePlay();
+  const { playListState, playListDispatch } = usePlay();
+  const {createUserPlaylist}= playListState
+
 
   const watchlaterHandler = (video) => {
     if (watchLater.find((item) => item._id === video._id)) {
@@ -58,6 +60,7 @@ const VideoCard = ({ video }) => {
             <div>
               <button
                 className="clear-btn"
+                checked={createUserPlaylist}
                 onClick={() => addDataToList(video, playListDispatch)}
               >
                 <h2>

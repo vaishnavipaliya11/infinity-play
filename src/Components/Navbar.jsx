@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { MdPlaylistAdd, MdExplore } from "react-icons/md";
 import { AiFillHeart } from "react-icons/ai";
-import { FaSignOutAlt, FaUserAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaUserAlt,FaSearch } from "react-icons/fa";
 import { FaInfinity } from "react-icons/fa";
 import { useAuth } from "../context/authContext";
 import { useData } from "../context/dataContext";
@@ -29,9 +29,9 @@ const Navbar = () => {
         </nav>
       </header>
 
-      <div>
+      <div className="search-input">
         <input
-          placeholder="search videos"
+          placeholder="search videos....."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
@@ -40,44 +40,14 @@ const Navbar = () => {
       </div>
 
       <div className="nav-options">
-        <Link to="/">
-          <div className="options">
-            <li>
-              {" "}
-              <h3>
-                <MdExplore className="icon-size" />
-              </h3>
-            </li>
-          </div>
-        </Link>
-
-        <Link to="/playlist">
-          <div className="options">
-            <li>
-              {" "}
-              <h3>
-                <MdPlaylistAdd className="icon-size" />
-              </h3>
-            </li>
-          </div>
-        </Link>
-
-        <Link to="/liked">
-          <div className="options">
-            <li>
-              <h3>
-                <AiFillHeart className="icon-size" />
-              </h3>
-            </li>
-          </div>
-        </Link>
+       
 
         {auth ? (
           <Link to="">
             <div className="options">
               <li>
                 <h3 onClick={logOutHandler}>
-                  <FaSignOutAlt className="icon-size" />
+                  <FaSignOutAlt className="icon-size icon-filled" />
                 </h3>
               </li>
             </div>
@@ -88,7 +58,7 @@ const Navbar = () => {
               <li>
                 {" "}
                 <h3>
-                  <FaUserAlt className="icon-size" />
+                  <FaUserAlt className="icon-size " />
                 </h3>
               </li>
             </div>
