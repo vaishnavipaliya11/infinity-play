@@ -1,74 +1,79 @@
-.single-video-wrapper{
-    width: calc(100vw - 5rem);
-    height: calc(100vh - 5rem);
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    justify-content: center;
-    align-items: center;
+.single-video-wrapper {
+  width: calc(100vw - 5rem);
+  height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-frame{
-    width:60rem;
-    height: 5rem;
-  
+.video-frame {
+  width: 60rem;
+  height: 5rem;
 }
 
-.single-video-container{
-    display: flex;
-    flex-direction: column; 
-    width: 60rem;
-    align-content: center;
+.single-video-container {
+  display: flex;
+  flex-direction: column;
+  width: 60rem;
+  align-content: center;
 }
 
-
-.video-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 45rem;
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45rem;
 }
 
-.video-description{
+.video-description {
+  font-size: 1rem;
+  font-weight: 500;
+  width: 60rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.video-btn-title-set {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 60rem;
+  flex-wrap: wrap;
+  height: 2rem;
+}
+
+.video-btns {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+}
+
+.video-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.video-btns button {
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.video-btns span{
     font-size: 1rem;
-    font-weight: 500;
-    width: 60rem;
-    text-align: left;
-    margin-bottom: 1rem;
+    color: gray;
 }
 
-.video-btn-title-set{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    font-weight: 600;
-    width: 60rem;
-    flex-wrap: wrap;
+.option-btns {
+  background: none;
+  font-size: 1.5rem;
+  border: none;
+  padding-left: 0.5rem;
 }
 
-.video-btns{
-   display: flex;
-    font-size: 2rem;
-}
-
-.video-title{
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
-}
-
-.video-btns button{
-    margin:0.5rem ;
-cursor: pointer;
-}
-
-.option-btns{
-    background: none;
-    font-size: 1.5rem;
-    border: none;
-    padding-left: 0.5rem;
-}
-
-.icon-filled{
-    color: var(--primary-color);
+.icon-filled {
+  color: var(--primary-color);
 }

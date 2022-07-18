@@ -21,3 +21,17 @@
   background-color: var(--primary-color);
   cursor: pointer;
 }
+
+.video-map-container .video-card{
+  position: relative;
+}
+.video-card .remove-card-btn{
+  position: absolute;
+  top:7px;
+  right: 23px;
+}
+.video-mapping-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

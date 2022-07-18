@@ -24,8 +24,7 @@ const VideoCard = ({ video }) => {
   const { historyDispatch } = useHistory();
 
   const { playListState, playListDispatch } = usePlay();
-  const {createUserPlaylist}= playListState
-
+  const { createUserPlaylist } = playListState;
 
   const watchlaterHandler = (video) => {
     if (watchLater.find((item) => item._id === video._id)) {
@@ -41,7 +40,10 @@ const VideoCard = ({ video }) => {
       <div className="products-card-container">
         <div className="product-card">
           <div className="product-tumb">
-            <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} />
+            <img
+              src={`https://i.ytimg.com/vi/${video._id}/hq720.jpg`}
+              loading="lazy"
+            />
           </div>
           <div className="product-details">
             <span className="product-catagory">
@@ -53,7 +55,10 @@ const VideoCard = ({ video }) => {
                     : navigate("/login")
                 }
               >
-                <p className="prod-title">{video.title}</p>
+                <div style={{ display: "flex", "align-items": "center" }}>
+                  <img className="video-logo" src={video?.icon}></img>
+                  <span className="prod-title">{video.title}</span>
+                </div>
               </Link>
             </span>
 
@@ -74,7 +79,7 @@ const VideoCard = ({ video }) => {
                   onClick={() => watchlaterHandler(video)}
                 >
                   <h2>
-                  <MdWatchLater className="icon-filled" />
+                    <MdWatchLater className="icon-filled" />
                   </h2>
                 </button>
               ) : (
@@ -83,12 +88,17 @@ const VideoCard = ({ video }) => {
                   onClick={() => watchlaterHandler(video)}
                 >
                   <h2>
-                  <MdOutlineWatchLater className="icon-filled"/>
-                   
+                    <MdOutlineWatchLater className="icon-filled" />
                   </h2>
                 </button>
               )}
             </div>
+          </div>
+          <div className="video-views">
+            <p>
+              {" "}
+              <span>views {video?.Views}</span> <span>{video?.Uploaded}</span>{" "}
+            </p>
           </div>
         </div>
       </div>

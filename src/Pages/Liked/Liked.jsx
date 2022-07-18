@@ -19,20 +19,22 @@ const Liked = () => {
           </button>
         </div>
       ) : (
-        <div className="liked-container">
+        <div className="video-mapping-container">
           {likedVideo.map((video) => {
             const { _id } = video;
             return (
               <div className="video-map-container">
-                <VideoCard key={video._id} video={video} />
+                <div className="video-card">
+                  <VideoCard key={video._id} video={video} />
 
-                <button
-                  className="remove-card-btn"
-                  onClick={() => deleteLikedVideo(_id, likedDispatch)}
-                >
-                  {" "}
-                  Remove{" "}
-                </button>
+                  <button
+                    className="remove-card-btn"
+                    onClick={() => deleteLikedVideo(_id, likedDispatch)}
+                  >
+                    {" "}
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
               </div>
             );
           })}

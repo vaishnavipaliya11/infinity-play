@@ -64,7 +64,9 @@ const SingleProduct = () => {
 
       <div className="video-btn-title-set">
         <p className="video-title">{singleVideoData.title}</p>
+       
         <div className="video-btns">
+       
           {likedVideo.find((item)  => item._id === video_id ) ? (
             <button
               className="option-btns"
@@ -78,7 +80,7 @@ const SingleProduct = () => {
               className="option-btns"
               onClick={() => (auth ? likeHandler() : navigate("/login"))}
             >
-              <AiOutlineLike className="icon-filled"/>
+              <AiOutlineLike className="icon-filled"/> 
             </button>
           )}
           
@@ -101,6 +103,7 @@ const SingleProduct = () => {
           
         </div>
       </div>
+      <hr/>
       <p className="video-description">{singleVideoData.description}</p>
     </div>
   );

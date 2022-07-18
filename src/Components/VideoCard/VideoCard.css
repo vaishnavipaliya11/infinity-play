@@ -12,3 +12,23 @@
 .product-catagory a{
     text-decoration: none;
 }
+
+.product-catagory .video-logo{
+    width: 2rem;
+    border-radius: 50%;
+    margin: 0.2em;
+}
+
+.product-tumb{
+    height: 10rem !important;
+}
+
+.product-tumb img{
+    height: 10rem;
+}
+.video-views p{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em;
+    color: gray;
+}
