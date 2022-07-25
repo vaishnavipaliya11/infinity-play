@@ -17,7 +17,7 @@ const Modal = () => {
   };
 
   return (
-    <div className="modal-main-container">
+    
       <div className="modal-container">
         <h2>Name of Playlist</h2>
         {createUserPlaylist.map((data) => {
@@ -65,7 +65,7 @@ const Modal = () => {
           Create Playlist
         </button>
       </div>
-    </div>
+  
   );
 };
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getUserToken } from "./getUserToken";
-
+import toast from "react-hot-toast";
 const deleteWatchLater = async (_id, watchLaterDispatch) => {
   try {
     const { data } = await axios({
@@ -10,7 +10,7 @@ const deleteWatchLater = async (_id, watchLaterDispatch) => {
         authorization: getUserToken(),
       },
     });
-
+    toast.success("removed from watchlater")
     watchLaterDispatch({
       type: "DELETE_FROM_WATCH_LATER",
       payload: data.watchlater,

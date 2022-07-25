@@ -9,12 +9,14 @@ import { WatchLaterProvider } from "./context/watchContext";
 import { LikeProvider } from "./context/likeContext";
 import { HistoryProvider } from "./context/historyContext";
 import { PlaylistProvider } from "./context/playListContext";
+import { DataProvider } from "./context/dataContext";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <DataProvider>
       <AuthProvider>
         <WatchLaterProvider>
           <LikeProvider>
@@ -26,6 +28,7 @@ ReactDOM.render(
           </LikeProvider>
         </WatchLaterProvider>
       </AuthProvider>
+      </DataProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

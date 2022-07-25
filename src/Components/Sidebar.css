@@ -1,39 +1,50 @@
 @import url("../styles.css");
 
-.options a{
-text-decoration: none;
-color: var(--text-clr);
+.options a {
+  text-decoration: none;
+  color: var(--text-clr);
 }
 
 .sidebar-container {
-    display: flex;
-    width: max-content;
-    padding: 0.5rem;
-    overflow: hidden;
-    flex-direction: column;
-    letter-spacing: 0.2em;
-    color: black;
-  }
-  
-  .sidebar-container Link {
-    list-style: none;
-  }
+  display: flex;
+  width: max-content;
+  padding: 0.5rem;
+  overflow: hidden;
+  flex-direction: column;
+  letter-spacing: 0.2em;
+  color: black;
+}
 
-  .options {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: var(--text-clr);
-    align-items: center;
-  }
-  
-  .options a {
-    text-decoration: none;
-  }
+.sidebar-container Link {
+  list-style: none;
+}
 
-  .options-list {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    list-style: none;
-  }
+.options {
+  display: flex;
+  flex-direction: row;
+  color: var(--text-clr);
+  align-items: center;
+  height: fit-content;
+}
+
+.options-list .options:hover {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.options-list .options {
+  height: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+.options a {
+  text-decoration: none;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  list-style: none;
+}

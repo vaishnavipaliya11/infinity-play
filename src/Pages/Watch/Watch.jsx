@@ -13,33 +13,34 @@ const WatchLater = () => {
 
   return (
     <div className="page-cards-wrapper">
-
-    {watchLater.length === 0 ? 
-      <div >
+      {watchLater.length === 0 ? (
+        <div>
           <h2>Seems you haven't added anything yet.</h2>
           <button className="remove-card-btn" onClick={() => navigate("/")}>
             Explore
           </button>
-        </div> : 
-      <div>
-      {watchLater.map((video) => {
-        const { _id } = video;
-        return (
-          <div className="video-map-container">
-            <VideoCard video={video} />
-            <button
-              className="remove-card-btn"
-              onClick={() => deleteWatchLater(_id, watchLaterDispatch)}
-            >
-              {" "}
-              Remove{" "}
-            </button>
-          </div>
-        );
-      })}
-      </div>}
-
-      
+        </div>
+      ) : (
+        <div className="video-mapping-container">
+          {watchLater?.map((video) => {
+            const { _id } = video;
+            return (
+              <div className="video-map-container">
+                <div className="video-card">
+                  <VideoCard video={video} />
+                  <button
+                    className="remove-card-btn"
+                    onClick={() => deleteWatchLater(_id, watchLaterDispatch)}
+                  >
+                    {" "}
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

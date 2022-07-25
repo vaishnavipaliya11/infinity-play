@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHistory } from "react-icons/fa";
-import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
+import { MdPlaylistAdd, MdOutlineWatchLater, MdExplore } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import "./Sidebar.css"
@@ -14,8 +14,8 @@ const Sidebar = () => {
       <nav>
         <ul className="options-list fs-lrg ">
           <div className="options">
-            <NavLink style={getActiveStyle} to="/" className="pd-med ">
-              Explore
+            <NavLink style={getActiveStyle} to="/" >
+              Explore 
             </NavLink>
             <h3>
               <MdExplore />{" "}
@@ -23,7 +23,7 @@ const Sidebar = () => {
           </div>
 
           <div className="options">
-            <NavLink style={getActiveStyle} to="/playlist" className="pd-med">
+            <NavLink style={getActiveStyle} to="/playlist">
               Playlist{" "}
             </NavLink>
             <h3>
@@ -32,7 +32,7 @@ const Sidebar = () => {
           </div>
 
           <div className="options">
-            <NavLink style={getActiveStyle} to="/liked" className="pd-med">
+            <NavLink style={getActiveStyle} to="/liked">
               Liked{" "}
             </NavLink>
             <h3>
@@ -42,17 +42,17 @@ const Sidebar = () => {
           </div>
 
           <div className="options">
-            <NavLink style={getActiveStyle} to="/watch" className="pd-med">
+            <NavLink style={getActiveStyle} to="/watch">
               Watchlater{" "}
             </NavLink>
             <h3>
               {" "}
-              <MdWatchLater />{" "}
+              <MdOutlineWatchLater />{" "}
             </h3>
           </div>
 
           <div className="options">
-            <NavLink style={getActiveStyle} to="/history" className="pd-med">
+            <NavLink style={getActiveStyle} to="/history">
               History{" "}
             </NavLink>
             <h3>

@@ -13,9 +13,7 @@ const History = () => {
   const { auth } = useAuth();
 
   return (
-   
     <div className="page-cards-wrapper">
-    
       {auth ? (
         <div>
           {historyVideo.length === 0 ? (
@@ -26,28 +24,30 @@ const History = () => {
               </button>
             </div>
           ) : (
-            <div className="liked-container">
+            <div className="video-mapping-container">
               {historyVideo.map((video) => {
                 const { _id } = video;
                 return (
                   <div className="video-map-container">
-                    <VideoCard key={video._id} video={video} />
-
-                    <button
-                      className="video-delete-btn"
-                      onClick={() => deleteHistory(_id, historyDispatch)}
-                    >
-                      {" "}
-                      Remove{" "}
-                    </button>
+                    <div className="video-card">
+                      <VideoCard video={video} />
+                      <button
+                        className="remove-card-btn"
+                        onClick={() => deleteHistory(_id,historyDispatch)}
+                      >
+                        {" "}
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
                   </div>
                 );
               })}
               <div className="delete-all-btn">
-      <button onClick={()=> deleteAllHistory(historyDispatch)}>delete all</button>
-      </div>
+                <button onClick={() => deleteAllHistory(historyDispatch)}>
+                  delete all
+                </button>
+              </div>
             </div>
-            
           )}
         </div>
       ) : (
@@ -56,10 +56,7 @@ const History = () => {
           <button onClick={() => navigate("/login")}>Login</button>
         </div>
       )}
-
-      
     </div>
-   
   );
 };
 

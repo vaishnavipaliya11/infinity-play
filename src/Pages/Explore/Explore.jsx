@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Explore/Explore.css";
 import { FaHistory } from "react-icons/fa";
 import { MdPlaylistAdd, MdWatchLater, MdExplore } from "react-icons/md";
@@ -11,23 +11,29 @@ import { addToWatchLater } from "../../Utils/addToWatchLater";
 import { VideoCard } from "../../Components/VideoCard/VideoCard";
 import { Modal } from "../../Components/Modal";
 import { usePlay } from "../../context/playListContext";
+import { getSearchedVideo } from "../../Utils/getSearchedVideo";
+import { useData } from "../../context/dataContext";
+import { getAllVideos } from "../../Utils/getallVideos";
 
 const Explore = () => {
   const { watchLaterState, watchLaterDispatch } = useWatchLater();
   const navigate = useNavigate();
-  const { data } = videoData();
+  const { data, search,setData } = useData();
   const { auth } = useAuth();
   const { playListState } = usePlay();
 
   const { modal } = playListState;
+  const searchVideo = getSearchedVideo(search, data);
+
+  useEffect(()=>{
+    getAllVideos(setData)
+  },[])
   return (
     <div className="main-container">
       <div className="video-cards-container">
-        <div className="modal-main-container">
         {modal ? <Modal /> : ""}
-        </div>
 
-        {data.map((video) => {
+        {searchVideo.map((video) => {
           return <VideoCard video={video} />;
         })}
       </div>
@@ -36,4 +42,3 @@ const Explore = () => {
 };
 
 export { Explore };
-

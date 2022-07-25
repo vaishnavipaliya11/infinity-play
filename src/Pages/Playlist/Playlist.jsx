@@ -31,7 +31,6 @@ const Playlist = () => {
     })();
   }, []);
 
-
   return (
     <div className="page-cards-wrapper">
       {playListState.getUserPlayList.length === 0 ? (
@@ -47,32 +46,32 @@ const Playlist = () => {
             playListState.getUserPlayList.map(({ title, videos, _id }) => {
               const playlistId = _id;
               return (
-                <div>
-                  <div className="playlist-cards">
-                    <h1 className="list-title">{title}</h1>
-                    {videos.map((video) => {
-                      const videoId = video._id;
-                      return (
-                        <div>
+                <div className="video-mapping-container">
+                <div className="list-title">{title}</div>
+                  
+                  {videos.map((video) => {
+                    const videoId = video._id;
+                    return (
+                      
+                      <div className="video-map-container">
+                        <div className="video-card">
                           <VideoCard video={video} />
                           <button
+                            className="remove-card-btn"
                             onClick={() =>
-                              deleteVideo(playlistId, videoId, playListDispatch)
+                              deleteVideo(playlistId,videoId, playListDispatch)
                             }
                           >
-                            Delete
+                            {" "}
+                            <i class="bi bi-trash"></i>
                           </button>
                         </div>
-                      );
-                    })}
+                      </div>
+                    );
+                  })}
 
-                    <button
-                      className="remove-card-btn"
-                      onClick={() => deletePlayList(_id, playListDispatch)}
-                    >
-                      {" "}
-                      Remove{" "}
-                    </button>
+                  <div>
+                  <button onClick={()=> deletePlayList(playlistId,playListDispatch)}>Delete all</button>
                   </div>
                 </div>
               );

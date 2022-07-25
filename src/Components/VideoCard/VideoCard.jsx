@@ -1,5 +1,9 @@
 import React from "react";
-import { MdPlaylistAdd, MdWatchLater } from "react-icons/md";
+import {
+  MdPlaylistAdd,
+  MdWatchLater,
+  MdOutlineWatchLater,
+} from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchContext";
 import { useAuth } from "../../context/authContext";
@@ -19,7 +23,8 @@ const VideoCard = ({ video }) => {
   const { auth } = useAuth();
   const { historyDispatch } = useHistory();
 
-  const { playListDispatch } = usePlay();
+  const { playListState, playListDispatch } = usePlay();
+  const { createUserPlaylist } = playListState;
 
   const watchlaterHandler = (video) => {
     if (watchLater.find((item) => item._id === video._id)) {
@@ -35,7 +40,10 @@ const VideoCard = ({ video }) => {
       <div className="products-card-container">
         <div className="product-card">
           <div className="product-tumb">
-            <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} />
+            <img
+              src={`https://i.ytimg.com/vi/${video._id}/hq720.jpg`}
+              loading="lazy"
+            />
           </div>
           <div className="product-details">
             <span className="product-catagory">
@@ -47,29 +55,50 @@ const VideoCard = ({ video }) => {
                     : navigate("/login")
                 }
               >
-                <p className="prod-title">{video.title}</p>
+                <div style={{ display: "flex", "align-items": "center" }}>
+                  <img className="video-logo" src={video?.icon}></img>
+                  <span className="prod-title">{video.title}</span>
+                </div>
               </Link>
             </span>
 
             <div>
               <button
                 className="clear-btn"
+                checked={createUserPlaylist}
                 onClick={() => addDataToList(video, playListDispatch)}
               >
                 <h2>
-                  <MdPlaylistAdd />
+                  <MdPlaylistAdd className="icon-filled" />
                 </h2>
               </button>
 
-              <button
-                className="clear-btn"
-                onClick={() => watchlaterHandler(video)}
-              >
-                <h3>
-                  <MdWatchLater />
-                </h3>
-              </button>
+              {watchLater.find((item) => item._id === video._id) ? (
+                <button
+                  className="clear-btn"
+                  onClick={() => watchlaterHandler(video)}
+                >
+                  <h2>
+                    <MdWatchLater className="icon-filled" />
+                  </h2>
+                </button>
+              ) : (
+                <button
+                  className="clear-btn"
+                  onClick={() => watchlaterHandler(video)}
+                >
+                  <h2>
+                    <MdOutlineWatchLater className="icon-filled" />
+                  </h2>
+                </button>
+              )}
             </div>
+          </div>
+          <div className="video-views">
+            <p>
+              {" "}
+              <span>views {video?.Views}</span> <span>{video?.Uploaded}</span>{" "}
+            </p>
           </div>
         </div>
       </div>

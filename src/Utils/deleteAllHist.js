@@ -1,4 +1,5 @@
 import axios from "axios"
+import toast from "react-hot-toast";
 import { getUserToken } from "./getUserToken";
 export const deleteAllHistory = async (historyDispatch) =>{
 console.log("called");
@@ -11,7 +12,7 @@ console.log("called");
             },
         })
 
-        
+        toast.success("deleted all videos!!")
         historyDispatch({type:"DELETE_ALL", payload: data.history})
 
     } catch (error) {
