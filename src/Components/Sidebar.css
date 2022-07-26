@@ -7,11 +7,10 @@
 
 .sidebar-container {
   display: flex;
-  width: max-content;
+  /* width: max-content; */
   padding: 0.5rem;
   overflow: hidden;
   flex-direction: column;
-  letter-spacing: 0.2em;
   color: black;
 }
 
@@ -35,7 +34,7 @@
   height: 2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 .options a {
@@ -47,4 +46,8 @@
   flex-direction: column;
   padding: 1rem;
   list-style: none;
+}
+
+.options h3 {
+  padding: 0.5em;
 }

@@ -23,7 +23,7 @@ const Navbar = () => {
         <nav>
           <h2>
             {" "}
-            <FaInfinity />
+           <span> <FaInfinity /></span>
             Infinity video
           </h2>
         </nav>
