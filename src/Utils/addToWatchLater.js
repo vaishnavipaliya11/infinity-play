@@ -2,8 +2,6 @@ import axios from 'axios'
 import {getUserToken} from "./getUserToken"
 import toast from "react-hot-toast";
 const addToWatchLater= async (video,watchLaterDispatch) =>{
-
-
     try{
         const {data}= await axios ({
             method:"POST",
@@ -21,7 +19,7 @@ const addToWatchLater= async (video,watchLaterDispatch) =>{
         watchLaterDispatch({type:"ADD_TO_WATCH_LATER",payload:data.watchlater})
     }
     catch (e) {
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",data?.errors)
         console.log(e.response);
       }
 }
