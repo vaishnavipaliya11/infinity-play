@@ -18,6 +18,7 @@ export const deleteVideo = async (playlistId, videoId, playListDispatch) => {
       payload: data.playlist,
     });
   } catch (error) {
+    toast.error("Something went wrong")
     console.error(error);
   }
 };

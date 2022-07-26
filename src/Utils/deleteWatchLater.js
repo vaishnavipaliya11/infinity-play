@@ -16,6 +16,7 @@ const deleteWatchLater = async (_id, watchLaterDispatch) => {
       payload: data.watchlater,
     });
   } catch (e) {
+    toast.error("Something went wrong")
     console.log("Something went wrong", e);
   }
 };

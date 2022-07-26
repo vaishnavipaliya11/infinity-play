@@ -17,6 +17,7 @@ const deleteLikedVideo = async (_id, likedDispatch) => {
         payload: data.likes,
       });
     } catch (e) {
+      toast.error("Something went wrong")
       console.log("Something went wrong", e);
     }
   };
