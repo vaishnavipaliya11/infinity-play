@@ -21,6 +21,7 @@ const addToWatchLater= async (video,watchLaterDispatch) =>{
         watchLaterDispatch({type:"ADD_TO_WATCH_LATER",payload:data.watchlater})
     }
     catch (e) {
+        toast.error("Something went wrong")
         console.log(e.response);
       }
 }
