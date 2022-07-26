@@ -2,7 +2,7 @@ import axios from "axios";
 import { getUserToken } from "./getUserToken"
 import toast from "react-hot-toast";
 const deleteLikedVideo = async (_id, likedDispatch) => {
-  console.log("Called",_id);
+
     try {
       const { data } = await axios({
         method: "DELETE",

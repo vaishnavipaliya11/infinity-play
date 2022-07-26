@@ -2,7 +2,6 @@ import axios from "axios"
 import toast from "react-hot-toast";
 import { getUserToken } from "./getUserToken";
 export const deleteAllHistory = async (historyDispatch) =>{
-console.log("called");
     try {
         const {data}= await axios({
             method:"DELETE",
