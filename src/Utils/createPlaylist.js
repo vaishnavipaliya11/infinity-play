@@ -29,6 +29,7 @@ import { getUserToken } from "./getUserToken";
 
       setUserList({ ...userList, title: "" });
     } catch (error) {
+      toast.error("Something went wrong")
       console.error();
     }
   };

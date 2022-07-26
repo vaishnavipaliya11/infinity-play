@@ -16,6 +16,7 @@ const deleteHistory = async (_id, historyDispatch) => {
       payload: data.history,
     });
   } catch (e) {
+    toast.error("Something went wrong")
     console.log("Something went wrong", e);
   }
 };

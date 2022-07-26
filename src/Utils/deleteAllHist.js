@@ -16,6 +16,7 @@ console.log("called");
         historyDispatch({type:"DELETE_ALL", payload: data.history})
 
     } catch (error) {
+        toast.error("Something went wrong")
         console.error()
     }
 }

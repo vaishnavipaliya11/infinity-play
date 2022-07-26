@@ -20,6 +20,7 @@ const addToPlaylist = async (video, _id, playListDispatch) => {
       payload: response.data.playlist,
     });
   } catch (error) {
+    toast.error("Something went wrong")
     console.error();
   }
 };
