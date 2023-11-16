@@ -15,8 +15,8 @@ const WatchLater = () => {
     <div className="page-cards-wrapper">
       {watchLater.length === 0 ? (
         <div>
-          <h2>Seems you haven't added anything yet.</h2>
-          <button className="remove-card-btn" onClick={() => navigate("/")}>
+          <h2>Seems you haven't watched anything yet.</h2>
+          <button className="primary-btn mar-zero" onClick={() => navigate("/")}>
             Explore
           </button>
         </div>

@@ -19,7 +19,7 @@ const Modal = () => {
   return (
     
       <div className="modal-container">
-        <h2>Name of Playlist</h2>
+        <p>Name of Playlist</p>
         {createUserPlaylist.map((data) => {
           const isVideo = data.videos.filter(
             (video) => video._id === selectedPlaylist._id

@@ -10,7 +10,7 @@ const deletePlayList = async (_id, playListDispatch) => {
           authorization: getUserToken(),
         },
       });
-      toast.success("playlist removed!!")
+      toast.success("Playlist removed!!")
     playListDispatch({
         type: "DELETE_FROM_PLAYLIST",
         payload:data.playlists,

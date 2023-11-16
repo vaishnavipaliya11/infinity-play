@@ -14,7 +14,7 @@ const Liked = () => {
       {likedVideo.length === 0 ? (
         <div className="liked-heading">
           <h2>Seems you haven't liked anything yet.</h2>
-          <button className="remove-card-btn" onClick={() => navigate("/")}>
+          <button className="primary-btn mar-zero" onClick={() => navigate("/")}>
             Explore
           </button>
         </div>

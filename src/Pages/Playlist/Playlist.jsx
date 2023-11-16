@@ -36,7 +36,7 @@ const Playlist = () => {
       {playListState.getUserPlayList.length === 0 ? (
         <div>
           <h2>Seems you haven't added anything to playlist.</h2>
-          <button className="remove-card-btn" onClick={() => navigate("/")}>
+          <button className="primary-btn mar-zero" onClick={() => navigate("/")}>
             Explore
           </button>
         </div>

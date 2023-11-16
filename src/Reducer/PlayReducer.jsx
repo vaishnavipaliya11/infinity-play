@@ -20,9 +20,12 @@ export const playReducerFunc = (state, action) => {
         getUserPlayList:[...action.payload],
       };
       case "DELETE_VIDEO_FROM_PLAYLIST":
+        console.log(action.payload);
         return{
           ...state,
-          getUserPlayList:[...state.getUserPlayList,action.payload]
+          getUserPlayList:state.getUserPlayList.map((playlist)=>{
+            return playlist._id === action.payload._id ? action.payload : playlist
+          })
         }
     default:
       return state;

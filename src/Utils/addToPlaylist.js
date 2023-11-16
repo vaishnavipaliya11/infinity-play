@@ -14,7 +14,7 @@ const addToPlaylist = async (video, _id, playListDispatch) => {
         },
       }
     );
-    toast.success("playlist added")
+    toast.success("Playlist added")
     playListDispatch({
       type: "PLAYLIST_VIDEO",
       payload: response.data.playlist,

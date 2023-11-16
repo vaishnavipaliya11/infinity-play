@@ -42,9 +42,9 @@ const History = () => {
                   </div>
                 );
               })}
-              <div className="delete-all-btn">
-                <button onClick={() => deleteAllHistory(historyDispatch)}>
-                  delete all
+              <div className="delete-all-btn mar-zero">
+                <button className="primary-btn mar-zero" onClick={() => deleteAllHistory(historyDispatch)}>
+                  Delete All
                 </button>
               </div>
             </div>

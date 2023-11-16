@@ -1,11 +1,15 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { MdPlaylistAdd, MdWatchLater,MdOutlineWatchLater } from "react-icons/md";
+import {
+  MdPlaylistAdd,
+  MdWatchLater,
+  MdOutlineWatchLater,
+} from "react-icons/md";
 import "./SingleProduct.css";
 import { getVideo } from "../../Utils/getVideo";
 import { useState } from "react";
-import { AiFillLike ,AiOutlineLike} from "react-icons/ai";
+import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { useAuth } from "../../context/authContext";
 import { addToLike } from "../../Utils/addToLike";
 import { useLiked } from "../../context/likeContext";
@@ -19,10 +23,9 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const { likedState, likedDispatch } = useLiked();
   const { likedVideo } = likedState;
- 
-  const {watchLaterState, watchLaterDispatch } = useWatchLater();
-  const {watchLater}= watchLaterState
-  console.log(watchLater);
+
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
+  const { watchLater } = watchLaterState;
   const [singleVideoData, setSingleVideoData] = useState({});
 
   useEffect(() => {
@@ -34,17 +37,20 @@ const SingleProduct = () => {
 
   const likeHandler = () => {
     {
-      likedVideo.find((item) => item._id === video_id ) ?
-      deleteLikedVideo(video_id, likedDispatch):
-      addToLike(singleVideoData,likedDispatch)
+      likedVideo.find((item) => item._id === video_id)
+        ? deleteLikedVideo(video_id, likedDispatch)
+        : addToLike(singleVideoData, likedDispatch);
     }
   };
 
-  const watchHandler = () =>{
-    {watchLater.find((eachvideo) => eachvideo._id === video_id) ?
-    deleteWatchLater(video_id,watchLaterDispatch) :
-    addToWatchLater(singleVideoData,watchLaterDispatch)}
-  }
+  const watchHandler = () => {
+    {
+      watchLater.find((eachvideo) => eachvideo._id === video_id)
+        ? deleteWatchLater(video_id, watchLaterDispatch)
+        : addToWatchLater(singleVideoData, watchLaterDispatch);
+    }
+  };
+  console.log(singleVideoData, "singleVideoData");
 
   return (
     <div className="single-video-wrapper">
@@ -63,47 +69,47 @@ const SingleProduct = () => {
       </div>
 
       <div className="video-btn-title-set">
-        <p className="video-title">{singleVideoData.title}</p>
-       
+        <div style={{ display: "flex", "align-items": "center" }}>
+          <img className="video-logo" src={singleVideoData?.icon}></img>
+          <span className="prod-title">{singleVideoData?.title}</span>
+        </div>
+
         <div className="video-btns">
-       
-          {likedVideo.find((item)  => item._id === video_id ) ? (
+          {likedVideo.find((item) => item._id === video_id) ? (
             <button
               className="option-btns"
               onClick={() => (auth ? likeHandler() : navigate("/login"))}
             >
-             
-             <AiFillLike className="icon-filled"/>
+              <AiFillLike className="icon-filled" />
             </button>
           ) : (
             <button
               className="option-btns"
               onClick={() => (auth ? likeHandler() : navigate("/login"))}
             >
-              <AiOutlineLike className="icon-filled"/> 
+              <AiOutlineLike className="icon-filled" />
             </button>
           )}
-          
-            {watchLater.find((eachvideo)=> eachvideo._id === video_id) ?
-            <button className="option-btns"
-            onClick={() =>
-              auth
-                ? watchHandler()
-                : navigate("/login")
-            }> <MdWatchLater className="icon-filled"/>
-            </button> :
-          <button className="option-btns"
-          onClick={() =>
-            auth
-              ? watchHandler()
-              : navigate("/login")
-          }>
-          <MdOutlineWatchLater className="icon-filled"/>
-          </button>}
-          
+
+          {watchLater.find((eachvideo) => eachvideo._id === video_id) ? (
+            <button
+              className="option-btns"
+              onClick={() => (auth ? watchHandler() : navigate("/login"))}
+            >
+              {" "}
+              <MdWatchLater className="icon-filled" />
+            </button>
+          ) : (
+            <button
+              className="option-btns"
+              onClick={() => (auth ? watchHandler() : navigate("/login"))}
+            >
+              <MdOutlineWatchLater className="icon-filled" />
+            </button>
+          )}
         </div>
       </div>
-      <hr/>
+      <hr />
       <p className="video-description">{singleVideoData.description}</p>
     </div>
   );

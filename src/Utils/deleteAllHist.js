@@ -11,7 +11,7 @@ export const deleteAllHistory = async (historyDispatch) =>{
             },
         })
 
-        toast.success("deleted all videos!!")
+        toast.success("Deleted all videos")
         historyDispatch({type:"DELETE_ALL", payload: data.history})
 
     } catch (error) {

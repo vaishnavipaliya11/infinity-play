@@ -1,7 +1,7 @@
 .prod-title{
     text-decoration: none;
     color: var(--text-clr);
-    letter-spacing: 0.1em
+    /* letter-spacing: 0.1em */
 }
 
 .prod-title:hover{

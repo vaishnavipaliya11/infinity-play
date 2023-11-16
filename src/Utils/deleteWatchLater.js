@@ -10,7 +10,7 @@ const deleteWatchLater = async (_id, watchLaterDispatch) => {
         authorization: getUserToken(),
       },
     });
-    toast.success("removed from watchlater")
+    toast.success("Removed from watchlater")
     watchLaterDispatch({
       type: "DELETE_FROM_WATCH_LATER",
       payload: data.watchlater,

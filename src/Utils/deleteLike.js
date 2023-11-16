@@ -11,7 +11,7 @@ const deleteLikedVideo = async (_id, likedDispatch) => {
           authorization: getUserToken(),
         },
       });
-      toast.success("removed from like")
+      toast.success("Removed from like")
       likedDispatch({
         type: "DELETE_FROM_LIKED",
         payload: data.likes,

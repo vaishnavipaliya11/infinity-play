@@ -10,7 +10,7 @@ const deleteHistory = async (_id, historyDispatch) => {
         authorization: getUserToken(),
       },
     });
-    toast.success(" video removed")
+    toast.success("Removed from history")
     historyDispatch({
       type: "DELETE_FROM_HISTORY",
       payload: data.history,

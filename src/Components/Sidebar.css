@@ -23,7 +23,8 @@
   flex-direction: row;
   color: var(--text-clr);
   align-items: center;
-  height: fit-content;
+  height: fit-content;  transition: all 200ms ease;
+
 }
 
 .options-list .options:hover {
@@ -32,9 +33,8 @@
 
 .options-list .options {
   height: 2rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  /* width: fit-content; */
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid transparent;
 }
 
 .options a {
@@ -44,7 +44,7 @@
 .options-list {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding:0 1rem;
   list-style: none;
 }
 

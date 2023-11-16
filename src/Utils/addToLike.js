@@ -14,10 +14,10 @@ const addToLike = async (video, likedDispatch) => {
         },
       }
     );
-      toast.success("liked video")
+    toast.success("Added to  liked ");
     likedDispatch({ type: "ADD_TO_LIKED", payload: data.likes });
   } catch (e) {
-    toast.error("Something went wrong")
+    toast.error("Something went wrong");
     console.log("Something went wrong", e);
   }
 };

@@ -15,7 +15,7 @@ const addToWatchLater= async (video,watchLaterDispatch) =>{
             }
         })
 
-        toast.success("added to watchlater")
+        toast.success("Added to watchlater")
         watchLaterDispatch({type:"ADD_TO_WATCH_LATER",payload:data.watchlater})
     }
     catch (e) {

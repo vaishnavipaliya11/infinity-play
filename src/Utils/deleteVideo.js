@@ -12,7 +12,7 @@ export const deleteVideo = async (playlistId, videoId, playListDispatch) => {
       }
     );
 
-      toast.success("video removed !!")
+      toast.success("Video removed !!")
     playListDispatch({
       type: "DELETE_VIDEO_FROM_PLAYLIST",
       payload: data.playlist,

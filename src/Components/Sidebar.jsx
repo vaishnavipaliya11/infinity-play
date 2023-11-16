@@ -12,9 +12,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <nav>
-        <ul className="options-list fs-med">
-          <div className="options">
-            <h3>
+        <ul className="options-list mar-zero fs-med ">
+          <div className="options mar-zero">
+            <h3 className="mar-zero">
               <MdExplore />{" "}
             </h3>
             <NavLink style={getActiveStyle} to="/">
@@ -22,7 +22,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="options">
+          <div className="options mar-zero">
             <h3>
               <MdPlaylistAdd />{" "}
             </h3>
@@ -31,7 +31,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="options">
+          <div className="options mar-zero">
             <h3>
               {" "}
               <AiOutlineLike />{" "}
@@ -41,7 +41,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="options">
+          <div className="options mar-zero">
             {" "}
             <h3>
               {" "}
@@ -52,7 +52,7 @@ const Sidebar = () => {
             </NavLink>
           </div>
 
-          <div className="options">
+          <div className="options mar-zero">
             <h3>
               <FaHistory />
             </h3>

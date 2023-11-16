@@ -57,12 +57,13 @@ const VideoCard = ({ video }) => {
               >
                 <div style={{ display: "flex", "align-items": "center" }}>
                   <img className="video-logo" src={video?.icon}></img>
-                  <span className="prod-title">{video.title}</span>
+                  <span className="prod-title">{video?.title}</span>
+
                 </div>
               </Link>
             </span>
 
-            <div>
+            <div className="common-flex"> 
               <button
                 className="clear-btn"
                 checked={createUserPlaylist}
@@ -95,10 +96,11 @@ const VideoCard = ({ video }) => {
             </div>
           </div>
           <div className="video-views">
-            <p>
+            {/* <p>                  <span className="prod-title">{video.title}</span> */}
+
               {" "}
-              <span>views {video?.Views}</span> <span>{video?.Uploaded}</span>{" "}
-            </p>
+              {/* <span>views {video?.Views}</span> <span>{video?.Uploaded}</span>{" "} */}
+            {/* </p> */}
           </div>
         </div>
       </div>
